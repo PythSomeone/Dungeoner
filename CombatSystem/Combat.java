@@ -32,7 +32,14 @@ public class Combat {
 	public void setWinner(Character winner) {
 		this.winner=winner;
 	}
-	public void attack(attacker,defender){
-		if(attacker instanceof Goblin)
+	public void attack(Character attacker,Character defender){
+		String attackType = attacker.getPreferableAttack();
+		if(attackType == "physical") {
+			
+		}
+		if(attackType == "magical") {
+			
+		}
+
 	}
 }
