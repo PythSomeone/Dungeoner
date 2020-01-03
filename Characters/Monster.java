@@ -1,6 +1,6 @@
-package package3;
+package Characters;
 
-import package2.Start;
+import GameEngine.Start;
 
 abstract public class Monster 
 {

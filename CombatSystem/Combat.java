@@ -1,3 +1,5 @@
+package CombatSystem;
+
 
 public class Combat {
 	public Character player;

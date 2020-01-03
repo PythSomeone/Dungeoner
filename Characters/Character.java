@@ -1,10 +1,10 @@
-package package3;
+package Characters;
 
-import package2.Log;
+import GameEngine.Log;
 
-import package2.Start;
-import package4.Interface;
-import package2.MainGame;
+import GameEngine.Start;
+import GameEngine.MainGame;
+import Interfaces.Interface;
 import java.util.Scanner;
 
 public class Character implements Interface

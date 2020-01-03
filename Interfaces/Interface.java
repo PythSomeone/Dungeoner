@@ -1,4 +1,4 @@
-package package4;
+package Interfaces;
 
 public interface Interface 
 {

@@ -1,7 +1,8 @@
-package package2;
+package GameEngine;
 
-import package3.Character;
-import package3.Rat;
+import Characters.Character;
+import Characters.Rat;
+import Locations.Tavern;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

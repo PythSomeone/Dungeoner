@@ -1,6 +1,7 @@
-package package2;
+package Locations;
 
-import package3.Character;
+import Characters.Character;
+import GameEngine.Log;
 
 public class Tavern 
 {

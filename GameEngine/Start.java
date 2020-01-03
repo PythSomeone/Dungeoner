@@ -1,11 +1,14 @@
-package package2;
+package GameEngine;
 
-import package3.Character;
-import package3.Monster;
 import java.util.Scanner;
-import package3.Rat;
-import package3.Skieleton;
-import package3.Wolf;
+
+import Characters.Character;
+import Characters.Monster;
+import Characters.Rat;
+import Characters.Skieleton;
+import Characters.Wolf;
+
+import Locations.Tavern;
 
 public class Start 
 {

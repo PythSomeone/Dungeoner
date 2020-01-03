@@ -1,6 +1,6 @@
-import package2.Log;
-import package2.Start;
-import package2.MainGame;
+import GameEngine.Log;
+import GameEngine.Start;
+import GameEngine.MainGame;
 
 
 public class Main 
