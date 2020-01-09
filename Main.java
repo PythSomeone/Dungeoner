@@ -1,9 +1,12 @@
 import GameEngine.Log;
 import GameEngine.MainGame;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Scanner;
 
 import Characters.Hero;
+import Characters.CharacterClasses.Warrior;
 
 public class Main 
 {
@@ -19,15 +22,34 @@ public static void main(String[] args)
 	Log.info("Whats Your name?");	
 	String name = skan1.nextLine();
 	
-	Hero hero = new Hero(name,50,50,5,5,5,5,5);
+	
+  	Log.info("Whats Your class would be?");	
+   String characterclass = skan1.nextLine();
+   
+   Hero hero;
+	   if(characterclass.equalsIgnoreCase("warrior")) {
+			hero = new Hero(name,"Warrior",50,50,5,5,5,5,5);
+			
+		}
+		else if(characterclass.equalsIgnoreCase("assassin")) {
+			hero = new Hero(name,"Assasin",50,50,5,5,5,5,5);
+		}
+		else {
+			hero = new Hero(name,"Mage",50,50,5,5,5,5,5);
+		}
+
+	
+	
+	skan1.close();
+
 	Log.info("Hello "+ name + "!");
 	hero.distributePoints();
 	// GAME SETUP //
 	
 	
 	// START GAME //
-	hero.levelUp(4, 4, 1);
-	hero.levelUp(4, 4, 1);
+	hero.levelUp();
+	hero.levelUp();
 	hero.distributePoints();
 	// START GAME //
 	

@@ -2,7 +2,7 @@ package Characters;
 
 import GameEngine.Log;
 
-public class Character {
+public abstract class Character {
 	
 	protected int level = 1;
 	protected int maxHealth;
