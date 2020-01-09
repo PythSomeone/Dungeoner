@@ -1,6 +1,6 @@
-package characters;
+package Characters;
 
-import log.Log;
+import GameEngine.Log;
 
 public class Character {
 	
@@ -47,20 +47,22 @@ public class Character {
 	public int getToughness() {
 		return this.toughness;
 	}
-	
+	public String getName() {
+		return this.name;
+	}
 	public void dealDamage(int value) {
-		Log.message(this.name + " received " + value + " damage");
+		Log.info(this.name + " received " + value + " damage");
 		this.currentHealth-=value;
 	}
 	
 	public void recoverHealth(int value) {
 		if(this.currentHealth + value > this.maxHealth) {
-			Log.message("You've replenished " + ( value - ( (this.currentHealth + value) - this.maxHealth) ) + " health");
+			Log.info("You've replenished " + ( value - ( (this.currentHealth + value) - this.maxHealth) ) + " health");
 			this.currentHealth = this.maxHealth;
 		}
 		else {
 			this.currentHealth += value;
-			Log.message("You've replenished " + value + " health");
+			Log.info("You've replenished " + value + " health");
 		}
 	}
 	
@@ -70,12 +72,12 @@ public class Character {
 	
 	public void recoverMana(int value) {
 		if(this.currentMana + value > this.maxMana) {
-			Log.message("You've replenished " + ( value - ( (this.currentMana + value) - this.maxMana) ) + " mana");
+			Log.info("You've replenished " + ( value - ( (this.currentMana + value) - this.maxMana) ) + " mana");
 			this.currentMana = this.maxMana;
 		}
 		else {
 			this.currentMana += value;
-			Log.message("You've replenished " + value + " mana");
+			Log.info("You've replenished " + value + " mana");
 		}
 	}
 	

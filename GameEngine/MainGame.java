@@ -1,8 +1,7 @@
 package GameEngine;
 
 import Characters.Character;
-import Characters.Rat;
-import Locations.Tavern;
+import Characters.Hero;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -11,15 +10,6 @@ import java.util.Scanner;
 
 public class MainGame
 {
-	
-
-	private static Character champion;
-	
-	public MainGame(Character champion)
-	{
-		this.champion=champion;
-	}
-	
 	
 	public void play()
 	{
@@ -34,11 +24,6 @@ public class MainGame
 	                Log.info();
 	                Log.info("Write show if u want to see ur champ");
 	                Log.info("Write shop if u want go to shop");
-	                Log.info("Write tavern if u want go to tavern");
-	                Log.info("Write showmission if u want  to ur missions");
-	                Log.info("Write underground if u want go to underground (lv<5)");
-	                Log.info("Write forest if u want go to forest (lv<10)");
-	                Log.info("Write dungeon if u want go to dungeon (lv<15)");
 	                Log.info("Write exit if u want stop playing");
 	                
 	                
@@ -72,45 +57,21 @@ public class MainGame
 	 
 	 
 	 
-	 private  static void show() throws Exception 
+	 private  static void showStats(Hero hero) throws Exception 
 	 {	 
-		 champion.showstats();
+		 //hero.showstats();
 	 }
 	 
-	 private  static void shop() throws Exception 
+	/* private  static void shop() throws Exception 
 	 {
 		 Log.info("welcome in shop");
 		 champion.buyItems();
-	 }
+	 }*/
 	 
-	 private static void showmission() throws Exception 
-	 {
-		 
-		 champion.checkmission();
-	 }
+	
 	 
 	 
-	 
-	 private void tavern() throws Exception
-	 {
-		 Log.info("welcome in tavern ");
-		 Tavern.tavern();
-	 }
-	 
-	 private void underground() throws Exception
-	 {
-		 
-	 }
-	 
-	 private void forest() throws Exception
-	 {
-		 
-	 }
-	 
-	 private void dungeon() throws Exception
-	 {
-		 
-	 }
+	
 	 
 	 private void exit() throws Exception
 	 {

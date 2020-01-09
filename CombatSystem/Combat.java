@@ -1,5 +1,6 @@
 package CombatSystem;
 
+import Characters.Character;
 
 public class Combat {
 	public Character player;
@@ -33,13 +34,13 @@ public class Combat {
 		this.winner=winner;
 	}
 	public void attack(Character attacker,Character defender){
-		String attackType = attacker.getPreferableAttack();
+		/*String attackType = attacker.getPreferableAttack();
 		if(attackType == "physical") {
 			
 		}
 		if(attackType == "magical") {
 			
-		}
+		}*/
 
 	}
 }
