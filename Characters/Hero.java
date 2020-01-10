@@ -76,5 +76,7 @@ public class Hero extends Character {
 			Log.info("["+ability.getName()+"]["+ability.getManaUsage()+"]");
 		}
 	}
-
+	public int getLevel() {
+		return this.level;	
+	}
 }
