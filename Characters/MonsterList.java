@@ -7,11 +7,12 @@ public class MonsterList {
 
 	ArrayList<Monster> monsters = new ArrayList<Monster>();
 	
-	Monster rat = new Monster("Rat",50,50,5,5,5,5,5,1);
-	Monster fatRat = new Monster("Fat Rat",50,50,5,5,5,5,5,1);
+	//[NAME][HP][MP][STR][AGI][INT][LCK][TGH][LVL][EXP][GOLD]//
+	Monster rat = new Monster("Rat",50,50,5,5,5,5,5,1,10,1);
+	Monster bat = new Monster("Bat",50,50,5,5,5,5,5,1,25,3);
 	
 	private void initializeMonsterList() {
-		monsters.add(rat);	monsters.add(fatRat);
+		monsters.add(rat);	monsters.add(bat);
 	}
 	
 }
