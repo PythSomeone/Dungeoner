@@ -13,7 +13,6 @@ public class Hero extends Character {
 	}
 	
 	protected String title;
-	protected ArrayList<Ability> abilities = new ArrayList<Ability>();
 	private int requiredExp;
 	private int currentExp = 0;
 	private int statAmount = 0;

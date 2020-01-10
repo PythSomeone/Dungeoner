@@ -1,5 +1,8 @@
 package Characters;
 
+import java.util.ArrayList;
+
+import CombatSystem.Ability;
 import GameEngine.Log;
 
 public abstract class Character {
@@ -17,6 +20,8 @@ public abstract class Character {
 	protected int inteligence;
 	protected int luck;
 	protected int toughness;
+	
+	protected ArrayList<Ability> abilities = new ArrayList<Ability>();
 	
 	public Character(String name, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness)
 	{
