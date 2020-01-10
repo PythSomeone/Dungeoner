@@ -1,7 +1,9 @@
 package Characters;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import CombatSystem.Ability;
 import GameEngine.Log;
 
 public class Hero extends Character {
@@ -10,11 +12,13 @@ public class Hero extends Character {
 		super(name, health, mana, strenght, agility, inteligence, luck, toughness);	
 	}
 	
-	private String title;
+	protected String title;
+	protected ArrayList<Ability> abilities = new ArrayList<Ability>();
 	private int requiredExp;
 	private int currentExp = 0;
 	private int statAmount = 0;
 	
+
 	
 	protected int baseHealthIncrease;
 	protected int baseManaIncrease;
@@ -65,6 +69,13 @@ public class Hero extends Character {
 
 		}
 		return sentence;	
+	}
+	public void printAbilityList(){
+		Log.info("Available abilities: ");
+		for(Ability ability: abilities) {
+			Log.info();
+			Log.info("["+ability.getName()+"]["+ability.getManaUsage()+"]");
+		}
 	}
 
 }

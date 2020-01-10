@@ -11,4 +11,11 @@ public class Ability {
 		this.multiplier = multiplier;
 		this.manaUsage = manaUsage;
 	}
+	public String getName() {
+		return this.name;
+	}
+	
+	public int getManaUsage() {
+		return manaUsage;
+	}
 }
