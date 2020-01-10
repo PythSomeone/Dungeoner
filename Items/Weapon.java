@@ -3,9 +3,8 @@ package Items;
 public class Weapon extends _Item {
 	
 	private int damage;
-	private String characterClass;
 	
-	public boolean equipped;
+	public boolean equipped = false;
 	
 	
 	public Weapon(int value, String name, int damage) {
@@ -17,8 +16,12 @@ public class Weapon extends _Item {
 		return damage;
 	}
 	
-	public String getCharacterClass() {
-		return characterClass;
+	public void equip() {
+		equipped = true;
+	}
+	
+	public void unequip() {
+		equipped = false;
 	}
 	
 	public boolean canBeEquipped() {

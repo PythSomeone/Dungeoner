@@ -55,6 +55,9 @@ public class Character {
 	public String getName() {
 		return this.name;
 	}
+	public int getLevel() {
+		return this.level;
+	}
 	public void dealDamage(int value) {
 		Log.info(this.name + " received " + value + " damage");
 		this.currentHealth-=value;
