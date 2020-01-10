@@ -1,5 +1,8 @@
 import GameEngine.Log;
 import GameEngine.MainGame;
+import Items.Weapon;
+import Items._Item;
+import Items.Generators.WeaponGenerator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -14,10 +17,20 @@ public class Main
 public static void main(String[] args) 
 {
 	// INTRODUCTION //
-	
+	Hero hero;
+	hero = new Warrior("Bob","Warrior",50,50,5,5,5,5,5);
+
+	for(int i = 0; i<300; i++) {
+		Weapon weapon = new Weapon( WeaponGenerator.getRandomWarriorName(), 
+				WeaponGenerator.generateValue( hero ),
+				WeaponGenerator.generateDamage( hero ) );
+		weapon.equip();
+		weapon.weaponInfo();	
+		hero.levelUp();
+	}
 	// INTRODUCTION //
 	
-	
+	/*
 	// GAME SETUP //
 	Scanner skan1=new Scanner(System.in);
 	Log.info("Whats Your name?");	
@@ -58,6 +71,6 @@ public static void main(String[] args)
 	// START GAME //
 	
 	//FIGHTSTATES//
-	// 1 - 
+	// 1 - */
 }
 }

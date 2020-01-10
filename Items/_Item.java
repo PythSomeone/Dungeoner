@@ -5,12 +5,11 @@ import Interfaces.ItemsInterface;
 public class _Item implements ItemsInterface {
 	
 	private static int SET_ID = 0;
-	private int id;
-	private int value;
-	private String name;
+	protected int id;
+	protected int value;
+	protected String name;
 	
-	public _Item(int value, String name) {
-		this.value = value;
+	public _Item(String name) {
 		this.name = name;
 		this.id = _Item.SET_ID;
 		_Item.SET_ID++;

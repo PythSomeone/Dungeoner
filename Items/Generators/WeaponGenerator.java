@@ -1,9 +1,8 @@
 package Items.Generators;
 
+import Characters.Hero;
+
 public class WeaponGenerator {
-	
-	private static int value;
-	private static int damage;
 	
 	private static String[] adjectives = {"Heavy", "Powerful", "Legendary", "Magical", "Fairy", "Ultimate", "Common", "Uneasy", "Dizzy", "Weird", "Tiny", "Shiny", "Unique", "Manly"};
 	
@@ -22,5 +21,13 @@ public class WeaponGenerator {
         String[] magicType = {"Fire","Water","Earth","Love","Death","Electicity","Poison","Destruction"};
         return (adjectives[(int) (Math.random() * adjectives.length)] + " " + names[(int) (Math.random() * names.length)] + " of " + magicType[(int) (Math.random() * magicType.length)]);
     }
+	
+	public static int generateDamage(Hero hero) {
+		return (int) ( hero.getLevel() * ( Math.random() * 8 + hero.getLevel() ) );
+	}
+	
+	public static int generateValue(Hero hero) {
+		return ( hero.getLevel() );
+	}
 
 }

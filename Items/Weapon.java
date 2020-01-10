@@ -1,5 +1,7 @@
 package Items;
 
+import GameEngine.Log;
+
 public class Weapon extends _Item {
 	
 	private int damage;
@@ -7,9 +9,10 @@ public class Weapon extends _Item {
 	public boolean equipped = false;
 	
 	
-	public Weapon(int value, String name, int damage) {
-		super(value,name);
+	public Weapon(String name, int value, int damage) {
+		super(name);
 		this.damage = damage;
+		this.value = value * damage * 4;
 	}
 	
 	public int getDamage() {
@@ -22,6 +25,13 @@ public class Weapon extends _Item {
 	
 	public void unequip() {
 		equipped = false;
+	}
+	
+	public void weaponInfo() {
+		Log.info("Your current weapon : ");
+		Log.info("Name : " + this.name);
+		Log.info("Damage : " + this.damage);
+		Log.info("Value : " + this.value);
 	}
 	
 	public boolean canBeEquipped() {

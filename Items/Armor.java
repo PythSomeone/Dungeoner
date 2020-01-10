@@ -7,9 +7,10 @@ public class Armor extends _Item {
 	public boolean equipped;
 	
 	
-	public Armor(int value, String name, int defence) {
-		super(value,name);
+	public Armor(String name, int damage) {
+		super(name);
 		this.defence = defence;
+		this.value = value * defence;
 	}
 	
 	public int getDefence() {
