@@ -28,7 +28,10 @@ public static void main(String[] args)
    String characterclass = skan1.nextLine();
    
    Hero hero;
+   Hero hh;
 	   if(characterclass.equalsIgnoreCase("warrior")) {
+		   //[NAME][TITLE][HP][MP][STR][AGI][INT][LCK][TGH]//
+		   hh = new Warrior(characterclass, characterclass, 0, 0, 0, 0, 0, 0, 0);
 			hero = new Warrior(name,"Warrior",50,50,5,5,5,5,5);
 			
 		}
