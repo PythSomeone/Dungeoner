@@ -13,14 +13,13 @@ public class Hero extends Character {
 	public Hero(String name, String title, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness) {
 		super(name, health, mana, strenght, agility, inteligence, luck, toughness);	
 	}
+	public Weapon weapon;
+	public Armor armor;
 	
 	protected String title;
 	private int requiredExp;
 	private int currentExp = 0;
 	private int statAmount = 0;
-	
-	private Weapon weapon;
-	private Armor armor;
 	
 	protected int baseHealthIncrease;
 	protected int baseManaIncrease;
@@ -68,24 +67,8 @@ public class Hero extends Character {
 		this.weapon = weapon;
 	}
 	
-	public int checkWeaponDamage() {
-		return weapon.getDamage();
-	}
-	
-	public void weaponInfo() {
-		weapon.weaponInfo();
-	}
-	
 	public void equipArmor(Armor armor) {
 		this.armor = armor;
-	}
-	
-	public int checkArmorDefence() {
-		return armor.getDefence();
-	}
-	
-	public void armorInfo() {
-		armor.armorInfo();
 	}
 	
 	public String printAvailableAttributes() {
