@@ -3,6 +3,7 @@ package Characters;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Characters.Inventory.Inventory;
 import CombatSystem.Ability;
 import GameEngine.Log;
 import Items.Armor;
@@ -13,6 +14,7 @@ public class Hero extends Character {
 	public Hero(String name, String title, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness) {
 		super(name, health, mana, strenght, agility, inteligence, luck, toughness);	
 	}
+	public Inventory inventory;
 	public Weapon weapon;
 	public Armor armor;
 	
@@ -64,10 +66,12 @@ public class Hero extends Character {
 	}
 	
 	public void equipWeapon(Weapon weapon) {
+		Log.info("You have equipped " + weapon.getName());
 		this.weapon = weapon;
 	}
 	
 	public void equipArmor(Armor armor) {
+		Log.info("You have equipped " + armor.getName());
 		this.armor = armor;
 	}
 	

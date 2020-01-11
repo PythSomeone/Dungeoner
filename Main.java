@@ -13,6 +13,7 @@ import java.util.Scanner;
 import Characters.Hero;
 import Characters.CharacterClasses.Assassin;
 import Characters.CharacterClasses.Warrior;
+import Characters.Inventory.Inventory;
 
 public class Main 
 {
@@ -22,18 +23,24 @@ public static void main(String[] args)
 	Hero hero;
 	hero = new Warrior("Bob","Warrior",10,10,5,5,5,5,5);
 
-	for(int i = 0; i<1; i++) {
-		Weapon weapon = new Weapon( WeaponGenerator.getRandomWarriorName(), 
-				WeaponGenerator.generateValue( hero ),
-				WeaponGenerator.generateDamage( hero ) );
-		Armor armor = new Armor( ArmorGenerator.getRandomName(), 
-				ArmorGenerator.generateValue( hero ),
-				ArmorGenerator.generateArmor( hero ) );
-		hero.equipWeapon(weapon);
-		hero.equipArmor(armor);
-		hero.weapon.weaponInfo();
-		hero.armor.armorInfo();
-	}
+		for(int i = 0; i < 5; i++) {
+			Weapon weapon = new Weapon( WeaponGenerator.getRandomWarriorName(), 	//WEAPON GENERATOR
+					WeaponGenerator.generateValue( hero ),
+					WeaponGenerator.generateDamage( hero ) );
+			Armor armor = new Armor( ArmorGenerator.getRandomName(), 				//ARMOR GENERATOR
+					ArmorGenerator.generateValue( hero ),
+					ArmorGenerator.generateArmor( hero ) );
+			hero.equipWeapon(weapon);
+			hero.equipArmor(armor);
+			hero.weapon.weaponInfo();
+			hero.armor.armorInfo();
+			hero.inventory.addItem(weapon);
+			hero.inventory.addItem(armor);
+			Log.info();
+			hero.inventory.inventoryInfo();
+			Log.info(".....................................................................................................");
+		}
+		
 	// INTRODUCTION //
 	
 	/*
