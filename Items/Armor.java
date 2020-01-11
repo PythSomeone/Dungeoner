@@ -1,20 +1,27 @@
 package Items;
 
+import GameEngine.Log;
+
 public class Armor extends _Item {
 
 	private int defence;
 	
-	public boolean equipped;
 	
-	
-	public Armor(String name, int damage) {
+	public Armor(String name, int value, int defence) {
 		super(name);
 		this.defence = defence;
-		this.value = value * defence;
+		this.value = value * defence * 2;
 	}
 	
 	public int getDefence() {
 		return defence;
+	}
+	
+	public void armorInfo() {
+		Log.info("Your current armor : ");
+		Log.info("Name : " + this.name);
+		Log.info("Defence : " + this.defence);
+		Log.info("Value : " + this.value);
 	}
 	
 	public boolean canBeEquipped() {

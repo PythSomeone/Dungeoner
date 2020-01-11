@@ -6,25 +6,15 @@ public class Weapon extends _Item {
 	
 	private int damage;
 	
-	public boolean equipped = false;
-	
 	
 	public Weapon(String name, int value, int damage) {
 		super(name);
 		this.damage = damage;
-		this.value = value * damage * 4;
+		this.value = value * damage;
 	}
 	
 	public int getDamage() {
 		return damage;
-	}
-	
-	public void equip() {
-		equipped = true;
-	}
-	
-	public void unequip() {
-		equipped = false;
 	}
 	
 	public void weaponInfo() {

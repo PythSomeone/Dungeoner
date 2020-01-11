@@ -1,7 +1,9 @@
 import GameEngine.Log;
 import GameEngine.MainGame;
+import Items.Armor;
 import Items.Weapon;
 import Items._Item;
+import Items.Generators.ArmorGenerator;
 import Items.Generators.WeaponGenerator;
 
 import java.lang.reflect.InvocationTargetException;
@@ -18,15 +20,19 @@ public static void main(String[] args)
 {
 	// INTRODUCTION //
 	Hero hero;
-	hero = new Warrior("Bob","Warrior",50,50,5,5,5,5,5);
+	hero = new Warrior("Bob","Warrior",10,10,5,5,5,5,5);
 
-	for(int i = 0; i<300; i++) {
+	for(int i = 0; i<1; i++) {
 		Weapon weapon = new Weapon( WeaponGenerator.getRandomWarriorName(), 
 				WeaponGenerator.generateValue( hero ),
 				WeaponGenerator.generateDamage( hero ) );
-		weapon.equip();
-		weapon.weaponInfo();	
-		hero.levelUp();
+		Armor armor = new Armor( ArmorGenerator.getRandomName(), 
+				ArmorGenerator.generateValue( hero ),
+				ArmorGenerator.generateArmor( hero ) );
+		hero.equipWeapon(weapon);
+		hero.equipArmor(armor);
+		hero.weaponInfo();
+		hero.armorInfo();
 	}
 	// INTRODUCTION //
 	
@@ -65,12 +71,8 @@ public static void main(String[] args)
 	
 	
 	// START GAME //
-	hero.levelUp();
-	hero.levelUp();
-	hero.distributePoints();
+
 	// START GAME //
-	
-	//FIGHTSTATES//
-	// 1 - */
+	 */
 }
 }

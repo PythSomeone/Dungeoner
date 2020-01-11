@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import CombatSystem.Ability;
 import GameEngine.Log;
+import Items.Armor;
+import Items.Weapon;
 
 public class Hero extends Character {
 
@@ -17,7 +19,8 @@ public class Hero extends Character {
 	private int currentExp = 0;
 	private int statAmount = 0;
 	
-
+	private Weapon weapon;
+	private Armor armor;
 	
 	protected int baseHealthIncrease;
 	protected int baseManaIncrease;
@@ -59,6 +62,30 @@ public class Hero extends Character {
 			Log.info("You've added 1 point to " + choice.toUpperCase());
 		}
 		Log.info("");
+	}
+	
+	public void equipWeapon(Weapon weapon) {
+		this.weapon = weapon;
+	}
+	
+	public int checkWeaponDamage() {
+		return weapon.getDamage();
+	}
+	
+	public void weaponInfo() {
+		weapon.weaponInfo();
+	}
+	
+	public void equipArmor(Armor armor) {
+		this.armor = armor;
+	}
+	
+	public int checkArmorDefence() {
+		return armor.getDefence();
+	}
+	
+	public void armorInfo() {
+		armor.armorInfo();
 	}
 	
 	public String printAvailableAttributes() {
