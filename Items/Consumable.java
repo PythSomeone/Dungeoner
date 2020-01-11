@@ -9,6 +9,7 @@ public class Consumable extends _Item {
 		super(name);
 		this.power = power;
 		this.value = value;
+		this.type = "Consumable";
 	}
 	
 	public int getPower() {

@@ -11,9 +11,12 @@ public class Weapon extends _Item {
 		super(name);
 		this.damage = damage;
 		this.value = value * damage;
+		this.type = "Weapon";
 	}
 	
-	public int getDamage() {
+	//[INTERFACE]//
+	
+	public int getStats() {
 		return damage;
 	}
 	

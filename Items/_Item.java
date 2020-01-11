@@ -5,9 +5,12 @@ import Interfaces.ItemsInterface;
 public class _Item implements ItemsInterface {
 	
 	private static int SET_ID = 0;
+	
 	protected int id;
 	protected int value;
+	
 	protected String name;
+	protected String type;
 	
 	public _Item(String name) {
 		this.name = name;
@@ -15,6 +18,7 @@ public class _Item implements ItemsInterface {
 		_Item.SET_ID++;
 	}
 	
+	//[INTERFACE]//
 	public int getID() {
 		return id;
 	}
@@ -45,6 +49,14 @@ public class _Item implements ItemsInterface {
 
 	public boolean isArmor() {
 		return false;
+	}
+
+	public int getStats() {
+		return 0;
+	}
+
+	public String getType() {
+		return type;
 	}
 
 }

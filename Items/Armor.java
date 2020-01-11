@@ -6,14 +6,15 @@ public class Armor extends _Item {
 
 	private int defence;
 	
-	
 	public Armor(String name, int value, int defence) {
 		super(name);
 		this.defence = defence;
 		this.value = value * defence * 2;
+		this.type = "Armor";
 	}
 	
-	public int getDefence() {
+	//[INTERFACE]//
+	public int getStats() {
 		return defence;
 	}
 	
