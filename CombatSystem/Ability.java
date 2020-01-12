@@ -18,4 +18,8 @@ public class Ability {
 	public int getManaUsage() {
 		return manaUsage;
 	}
+	
+	public int getMultiplier() {
+		return multiplier;
+	}
 }

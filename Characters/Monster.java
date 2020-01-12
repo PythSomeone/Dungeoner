@@ -22,7 +22,7 @@ public class Monster extends Character {
 		abilities.add(new Ability(name,multiplier,manaUsage));
 	}
 	
-	public Ability randomAbility() {
+	public Ability getRandomAbility() {
 		Collections.shuffle(abilities);
 		Ability abilty=abilities.get(0);
 		return abilty;
