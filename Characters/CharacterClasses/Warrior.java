@@ -9,7 +9,6 @@ public class Warrior extends Hero {
 
 	public Warrior(String name, String title, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness) {
 		super(name,title, health, mana, strenght, agility, inteligence, luck, toughness);
-		this.title="warrior";
 		this.baseHealthIncrease = 8;
 		this.baseManaIncrease = 2;
 		

@@ -22,6 +22,13 @@ public class WeaponGenerator {
         return (adjectives[(int) (Math.random() * adjectives.length)] + " " + names[(int) (Math.random() * names.length)] + " of " + magicType[(int) (Math.random() * magicType.length)]);
     }
 	
+	public static String getRandomName(Hero hero) {
+		if(hero.getTitle().equals("Warrior")) return getRandomWarriorName();
+		else if(hero.getTitle().equals("Assasin")) return getRandomAssasinName();
+		else if(hero.getTitle().equals("Mage")) return getRandomMageName();
+		return "dupa";
+	}
+	
 	public static int generateDamage(Hero hero) {
 		return (int) ( hero.getLevel() * ( Math.random() * 8 + hero.getLevel() ) );
 	}

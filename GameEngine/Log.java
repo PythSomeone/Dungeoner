@@ -1,6 +1,6 @@
 package GameEngine;
 
-
+import java.util.Scanner;
 
 public class Log 
 {
@@ -14,5 +14,18 @@ public class Log
     {
         System.out.println(message);
     }
+    
+    public static int scanInt() {
+		Scanner scanner = new Scanner(System.in);
+		int sentence = scanner.nextInt();
+		//scanner.close();
+		return sentence;
+	}
+	public static String scanString() {
+		Scanner scanner = new Scanner(System.in);
+		String sentence = scanner.next();
+		//scanner.close();
+		return sentence;
+	}
 
 }

@@ -145,18 +145,7 @@ public class Inventory {
 		} return false;
 	}
 	
-	private int scanInt() {
-		Scanner scanner = new Scanner(System.in);
-		int sentence = scanner.nextInt();
-		//scanner.close();
-		return sentence;
-	}
-	private String scanString() {
-		Scanner scanner = new Scanner(System.in);
-		String sentence = scanner.next();
-		//scanner.close();
-		return sentence;
-	}
+	
 	
 	public void setGold(int value) {
 		gold += value;
@@ -196,12 +185,12 @@ public class Inventory {
 		Log.info("CLOSE inventory");
 		
 		while(closed == false) {
-			action = scanString();
+			action = Log.scanString();
 			//REMOVE ITEM
 			if(action.equalsIgnoreCase("Remove")) {
 				try {
 					Log.info("Give ID of an item : ");
-					hero.inventory.deleteItem(scanInt());
+					hero.inventory.deleteItem(Log.scanInt());
 				}
 				catch(InputMismatchException e) {
 					Log.info("NIEPOPRAWNY FORMAT!");
@@ -211,7 +200,7 @@ public class Inventory {
 			else if(action.equalsIgnoreCase("Equip")) {
 				try {
 					Log.info("Give ID of an item : ");
-					hero.inventory.equip(hero, scanInt());
+					hero.inventory.equip(hero, Log.scanInt());
 				}
 				catch(InputMismatchException e) {
 					Log.info("NIEPOPRAWNY FORMAT!");
@@ -222,7 +211,7 @@ public class Inventory {
 				if(hero.isHurt() || hero.needsMana()) {
 					try {
 						Log.info("Give ID of an item : ");
-						hero.inventory.useItem(hero, scanInt());
+						hero.inventory.useItem(hero, Log.scanInt());
 					}
 					catch(InputMismatchException e) {
 						Log.info("NIEPOPRAWNY FORMAT!");

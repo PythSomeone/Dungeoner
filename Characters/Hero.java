@@ -17,9 +17,8 @@ public class Hero extends Character {
 	
 	public Hero(String name, String title, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness) {
 		super(name, health, mana, strenght, agility, inteligence, luck, toughness);	
+		this.title = title;
 		inventory = new Inventory();
-		weapon = new Weapon("Wooden stick", 1, 1);
-		armor = new Armor("Tattered cloth", 1, 1);
 	}
 	
 	protected String title;
@@ -80,6 +79,10 @@ public class Hero extends Character {
 		this.armor = armor;
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public String printAvailableAttributes() {
 		String sentence = "";
 		for(String attribute : availableAttributes) {
@@ -95,6 +98,10 @@ public class Hero extends Character {
 	
 	public int getToughness() {
 		return toughness + armor.getStats();
+	}
+	
+	public String getTitle() {
+		return title;
 	}
 	
 	public void addAbility(int abilityID, String name, int multiplier, int manaUsage) {

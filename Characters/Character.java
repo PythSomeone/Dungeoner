@@ -13,7 +13,7 @@ public class Character {
 	protected int maxMana;
 	protected int currentMana;
 	
-	private String name;
+	protected String name;
 	
 	protected int strenght;
 	protected int agility;

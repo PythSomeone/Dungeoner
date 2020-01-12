@@ -31,7 +31,7 @@ public class LootManager {
 		for(int i = 0; i < monsterAmount; i++) {
 			roll = roll(MAX_PERCENT);
 			if(roll <= weaponChance) {
-				Weapon weapon = new Weapon( WeaponGenerator.getRandomWarriorName(), 	//WEAPON GENERATOR
+				Weapon weapon = new Weapon( WeaponGenerator.getRandomName( hero ), 	//WEAPON GENERATOR
 						WeaponGenerator.generateValue( hero ),
 						WeaponGenerator.generateDamage( hero ) );
 				hero.inventory.addItem(weapon);
@@ -54,7 +54,7 @@ public class LootManager {
 		
 		int roll;
 		
-			Weapon weapon = new Weapon( WeaponGenerator.getRandomWarriorName(), 	//WEAPON GENERATOR
+			Weapon weapon = new Weapon( WeaponGenerator.getRandomName( hero ), 	//WEAPON GENERATOR
 					WeaponGenerator.generateValue( hero ),
 					WeaponGenerator.generateDamage( hero ) );
 			hero.inventory.addItem(weapon);

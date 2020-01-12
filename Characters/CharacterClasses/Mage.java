@@ -9,7 +9,6 @@ public class Mage extends Hero {
 
 	public Mage(String name, String title, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness) {
 		super(name,title, health, mana, strenght, agility, inteligence, luck, toughness);
-		this.title="mage";
 		this.baseHealthIncrease = 3;
 		this.baseManaIncrease = 7;
 		
