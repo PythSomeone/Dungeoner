@@ -10,7 +10,7 @@ import Items.Armor;
 
 public class Inventory {
 	
-	private final int inventorySize = 10;
+	private final int inventorySize = 12;
 	
 	private int gold = 0;
 	
@@ -107,6 +107,8 @@ public class Inventory {
 	public void inventoryInfo() {
 		if(inventory.isEmpty())	Log.info("Your inventory is empty!");
 		else {
+			Log.info("[INVENTORY] - " + inventory.size() + "/" + inventorySize);
+			Log.info();
 			for(ItemsInterface item : inventory) {
 				Log.info("ID : " + item.getID());
 				Log.info("Name : " + item.getName());
