@@ -21,7 +21,7 @@ public class Character {
 	protected int luck;
 	protected int toughness;
 	
-	protected ArrayList<Ability> abilities = new ArrayList<Ability>();
+	protected static ArrayList<Ability> abilities = new ArrayList<Ability>();
 	
 	public Character(String name, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness)
 	{
