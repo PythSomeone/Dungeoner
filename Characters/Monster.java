@@ -18,8 +18,8 @@ public class Monster extends Character {
 	private int gold;
 
 	
-	public void addAbility(String name, int multiplier, int manaUsage) {
-		abilities.add(new Ability(name,multiplier,manaUsage));
+	public void addAbility(int abilityID, String name, int multiplier, int manaUsage) {
+		abilities.add(new Ability(abilityID,name,multiplier,manaUsage));
 	}
 	
 	public Ability getRandomAbility() {

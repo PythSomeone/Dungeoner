@@ -25,6 +25,7 @@ public class Hero extends Character {
 	private int requiredExp;
 	private int currentExp = 0;
 	private int statAmount = 0;
+	private int abilityID = 0;
 	
 	protected int baseHealthIncrease;
 	protected int baseManaIncrease;
@@ -95,5 +96,13 @@ public class Hero extends Character {
 	}
 	public int getLevel() {
 		return this.level;	
+	}
+	
+	public void addAbility(int abilityID, String name, int multiplier, int manaUsage) {
+		abilities.add(new Ability(abilityID,name,multiplier,manaUsage));
+		this.abilityID++;
+	}
+	public static ArrayList<Ability> getAbilities() {
+		return abilities;
 	}
 }

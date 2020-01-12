@@ -1,5 +1,7 @@
 package CombatSystem;
 
+import java.util.Scanner;
+
 import Characters.Character;
 import Characters.Hero;
 import Characters.Monster;
@@ -16,13 +18,13 @@ public class Combat {
 		this.player=player;
 		this.enemy=enemy;
 		for(;;) {
-			/*
+			
 			playerAttack(player,enemy);
 			if(!enemy.isAlive()) {
 				setWinner(player);
 				break;
 			}
-			*/
+			
 			
 			enemyAttack(player,enemy);
 			if(!player.isAlive()) {
@@ -39,7 +41,16 @@ public class Combat {
 	public void playerAttack(Hero player,Monster enemy){
 		Log.info("Choose your ability to attack your enemy");
 		player.printAbilityList();
-			
+		Scanner scan = new Scanner(System.in);
+		String option;
+		option = scan.nextLine();
+		for(Ability ability:Hero.getAbilities())
+		{
+			if(option.equals(ability.getID())) {
+				int damage = ability.getMultiplier()*player.getStrenght();
+				enemy.dealDamage(damage);
+			}
+		}			
 		
 
 	}
@@ -50,8 +61,8 @@ public class Combat {
 		
 
 	}
-	public String getWinner() {
-		return winner.getName()+"has won";
+	public void getWinner() {
+		Log.info(winner.getName()+" has won");
 	}
 	
 	public void setWinner(Character winner) {
