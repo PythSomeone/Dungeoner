@@ -12,11 +12,11 @@ public class Assassin extends Hero {
 		this.baseManaIncrease = 5;
 		
 		
-		abilities.add(new Ability("Regular attack", 100, 0));
-		abilities.add(new Ability("Power stroke", 150, 50));
-		abilities.add(new Ability("Head butt", 300, 250));
-		abilities.add(new Ability("Ground stomp", 300, 250));
-		abilities.add(new Ability("Sword vortex", 300, 250));
+		abilities.add(new Ability(0,"Regular attack", 100, 0));
+		abilities.add(new Ability(1,"Power stroke", 150, 50));
+		abilities.add(new Ability(2,"Head butt", 300, 250));
+		abilities.add(new Ability(3,"Ground stomp", 300, 250));
+		abilities.add(new Ability(4,"Sword vortex", 300, 250));
 		
 		
 	}

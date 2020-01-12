@@ -13,11 +13,11 @@ public class Mage extends Hero {
 		this.baseHealthIncrease = 3;
 		this.baseManaIncrease = 7;
 		
-		abilities.add(new Ability("Regular attack", 100, 5));
-		abilities.add(new Ability("Fire Ball", 150, 50));
-		abilities.add(new Ability("Meteor Storm", 300, 250));
-		abilities.add(new Ability("Regular attack", 100, 0));
-		abilities.add(new Ability("Power stroke", 150, 50));
+		abilities.add(new Ability(0,"Regular attack", 100, 5));
+		abilities.add(new Ability(1,"Fire Ball", 150, 50));
+		abilities.add(new Ability(2,"Meteor Storm", 300, 250));
+		abilities.add(new Ability(3,"Regular attack", 100, 0));
+		abilities.add(new Ability(4,"Power stroke", 150, 50));
 		
 		
 	}

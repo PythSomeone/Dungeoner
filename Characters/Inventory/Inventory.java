@@ -113,7 +113,7 @@ public class Inventory {
 				Log.info("Type : " + item.getType());
 				if(item.getType().equals("Weapon"))				Log.info("Damage : " + item.getStats());
 				else if(item.getType().equals("Armor")) 		Log.info("Defence : " + item.getStats());
-				else if(item.getType().equals("Consumable"))	Log.info("Amount : " + item.getStats());
+				else if(item.getType().equals("Consumable"))	Log.info("Amount : " + item.getAmount());
 				Log.info("Value : " + item.getValue());
 				Log.info();
 			}

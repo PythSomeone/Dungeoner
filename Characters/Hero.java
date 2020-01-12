@@ -1,5 +1,6 @@
 package Characters;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Characters.Inventory.Inventory;
