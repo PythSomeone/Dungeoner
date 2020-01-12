@@ -93,6 +93,10 @@ public class Hero extends Character {
 		return this.level;	
 	}
 	
+	public int getToughness() {
+		return toughness + armor.getStats();
+	}
+	
 	public void addAbility(int abilityID, String name, int multiplier, int manaUsage) {
 		abilities.add(new Ability(abilityID,name,multiplier,manaUsage));
 		this.abilityID++;
