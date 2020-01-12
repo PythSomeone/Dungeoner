@@ -5,6 +5,7 @@ import Items.Weapon;
 import Items._Item;
 import Items.Generators.ArmorGenerator;
 import Items.Generators.WeaponGenerator;
+import Locations.Dungeon;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -14,6 +15,7 @@ import Characters.Hero;
 import Characters.CharacterClasses.Assassin;
 import Characters.CharacterClasses.Warrior;
 import Characters.Inventory.Inventory;
+import CombatSystem.Combat;
 
 public class Main 
 {
@@ -46,6 +48,7 @@ public static void main(String[] args)
 		hero.inventory.equip(hero,5);
 		hero.weapon.weaponInfo();
 		hero.armor.armorInfo();
+		Dungeon dungeon = new Dungeon(hero);
 		
 		
 		
