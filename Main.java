@@ -21,6 +21,8 @@ public static void main(String[] args)
 {
 	// INTRODUCTION //
 	Hero hero;
+	Armor tempArmor;
+	Weapon tempWeapon;
 	hero = new Warrior("Bob","Warrior",10,10,5,5,5,5,5);
 
 		for(int i = 0; i < 5; i++) {
@@ -30,17 +32,22 @@ public static void main(String[] args)
 			Armor armor = new Armor( ArmorGenerator.getRandomName(), 				//ARMOR GENERATOR
 					ArmorGenerator.generateValue( hero ),
 					ArmorGenerator.generateArmor( hero ) );
-			hero.equipWeapon(weapon);
-			hero.equipArmor(armor);
-			hero.weapon.weaponInfo();
-			hero.armor.armorInfo();
 			hero.inventory.addItem(weapon);
 			hero.inventory.addItem(armor);
 			Log.info();
 			hero.inventory.inventoryInfo();
-			hero.inventory.deleteItem(5);
 			Log.info(".....................................................................................................");
 		}
+		hero.inventory.equip(hero,6);
+		hero.inventory.equip(hero,3);
+		hero.weapon.weaponInfo();
+		hero.armor.armorInfo();
+		hero.inventory.equip(hero,2);
+		hero.inventory.equip(hero,5);
+		hero.weapon.weaponInfo();
+		hero.armor.armorInfo();
+		
+		
 		
 	// INTRODUCTION //
 	

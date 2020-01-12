@@ -1,8 +1,13 @@
 package Characters.Inventory;
 
 import java.util.ArrayList;
+
+import Characters.Hero;
 import GameEngine.Log;
 import Interfaces.ItemsInterface;
+import Items._Item;
+import Items.Weapon;
+import Items.Armor;
 
 public class Inventory {
 	
@@ -29,9 +34,44 @@ public class Inventory {
 		}
 		if(index != -1) {
 			inventory.remove(index);
-			Log.info("Item with index [" + index + "] have been removed from your inventory");
+			Log.info("Item with ID [" + ID + "] have been removed from your inventory");
 		}
 		else Log.info("You dont have this item in inventory");
+	}
+	
+	public static Weapon getWeapon(int ID) {
+		Weapon pushItem = null;
+		for(ItemsInterface item : inventory) { // LOOK FOR ID
+			if(item.getID() == ID) {
+				if(item.isWeapon()) pushItem = (Weapon) item;
+			}
+		}
+		if(pushItem != null)	return pushItem;
+		else return null;
+	}
+	
+	public static Armor getArmor(int ID) {
+		Armor pushItem = null;
+		for(ItemsInterface item : inventory) { // LOOK FOR ID
+			if(item.getID() == ID) {
+				if(item.isArmor()) pushItem = (Armor) item;
+			}
+		}
+		if(pushItem != null)	return pushItem;
+		else return null;
+	}
+	
+	public static void equip(Hero hero, int ID) {
+		if(hero.inventory.getArmor(ID) != null)	{
+			if(hero.armor != null) hero.inventory.addItem(hero.armor);
+			hero.equipArmor(hero.inventory.getArmor(ID));
+			deleteItem(ID);
+		}
+		else if(hero.inventory.getWeapon(ID) != null)	{
+			if(hero.weapon != null) hero.inventory.addItem(hero.weapon);
+			hero.equipWeapon(hero.inventory.getWeapon(ID));
+			deleteItem(ID);
+		}
 	}
 	
 	public static void inventoryInfo() {
