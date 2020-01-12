@@ -23,6 +23,7 @@ public class Armor extends _Item {
 		Log.info("Name : " + this.name);
 		Log.info("Defence : " + this.defence);
 		Log.info("Value : " + this.value);
+		Log.info();
 	}
 	
 	public boolean canBeEquipped() {

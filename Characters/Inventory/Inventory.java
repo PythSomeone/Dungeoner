@@ -27,14 +27,17 @@ public class Inventory {
 	
 	public static void deleteItem(int ID) {
 		int index = -1;
+		String name = null;
 		for(ItemsInterface item : inventory) { // LOOK FOR ID
 			if(item.getID() == ID) {
 				index = inventory.indexOf(item);
+				name = item.getName();
 			}
 		}
 		if(index != -1) {
 			inventory.remove(index);
-			Log.info("Item with ID [" + ID + "] have been removed from your inventory");
+			if(name != null)	Log.info(name + " have been removed from your inventory");
+			else Log.info("Dupa");
 		}
 		else Log.info("You dont have this item in inventory");
 	}
@@ -66,11 +69,13 @@ public class Inventory {
 			if(hero.armor != null) hero.inventory.addItem(hero.armor);
 			hero.equipArmor(hero.inventory.getArmor(ID));
 			deleteItem(ID);
+			Log.info();
 		}
 		else if(hero.inventory.getWeapon(ID) != null)	{
 			if(hero.weapon != null) hero.inventory.addItem(hero.weapon);
 			hero.equipWeapon(hero.inventory.getWeapon(ID));
 			deleteItem(ID);
+			Log.info();
 		}
 	}
 	
