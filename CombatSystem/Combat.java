@@ -41,28 +41,43 @@ public class Combat {
 	
 	public void playerAttack(Hero player,Monster enemy){
 		ArrayList<Ability> abilities = player.getAbilities();
-		Log.info("Choose your ability to attack your enemy");
-		player.printAbilityList();
+		
+		
 		Scanner scan = new Scanner(System.in);
 		String option;
-		option = scan.nextLine();
+		boolean success = false;
+		int opt = 0;
+
+		while (!success) {
+			Log.info("Choose ability id to attack an enemy ");
+			player.printAbilityList();
+			option = scan.nextLine();
+			try {
+				opt = Integer.parseInt(option);
+				success = true;
+			}
+			catch(NumberFormatException e) {
+				Log.info("Wrong format");
+				success = false;
+			}
+		}
+		
 		for(Ability ability: abilities)
 		{
-			if(option.equals(ability.getID())) {
-				int damage = ability.getMultiplier()*player.getStrenght();
+			if(opt == ability.getID()) {
+				int damage = (ability.getMultiplier()*player.getStrenght())-enemy.getToughness();
 				enemy.dealDamage(damage);
 			}
 		}			
 		
 
 	}
+	
 	public void enemyAttack(Hero player,Monster enemy){
-		
 		int damage=enemy.getRandomAbility().getMultiplier()*enemy.getStrenght();
 		player.dealDamage(damage);
-		
-
 	}
+	
 	public void getWinner() {
 		Log.info(winner.getName()+" has won");
 	}

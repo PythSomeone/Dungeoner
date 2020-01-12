@@ -41,7 +41,7 @@ public class Character {
 		Log.info("Available abilities: ");
 		for(Ability ability: abilities) {
 			Log.info();
-			Log.info("["+ability.getName()+"]["+ability.getManaUsage()+"]");
+			Log.info("["+ability.getID()+"]"+"["+ability.getName()+"]["+ability.getManaUsage()+"]");
 		}
 	}
 	
