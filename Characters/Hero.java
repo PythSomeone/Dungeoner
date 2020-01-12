@@ -14,6 +14,7 @@ public class Hero extends Character {
 	public Hero(String name, String title, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness) {
 		super(name, health, mana, strenght, agility, inteligence, luck, toughness);	
 	}
+	
 	public Inventory inventory;
 	public Weapon weapon;
 	public Armor armor;
