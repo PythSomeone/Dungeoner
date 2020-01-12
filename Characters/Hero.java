@@ -11,19 +11,22 @@ import Items.Weapon;
 
 public class Hero extends Character {
 
-	public Hero(String name, String title, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness) {
-		super(name, health, mana, strenght, agility, inteligence, luck, toughness);	
-	}
-	
 	public Inventory inventory;
 	public Weapon weapon;
 	public Armor armor;
+	
+	public Hero(String name, String title, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness) {
+		super(name, health, mana, strenght, agility, inteligence, luck, toughness);	
+		inventory = new Inventory();
+		weapon = new Weapon("Wooden stick", 1, 1);
+		armor = new Armor("Tattered cloth", 1, 1);
+	}
 	
 	protected String title;
 	private int requiredExp;
 	private int currentExp = 0;
 	private int statAmount = 0;
-	protected int abilityID = 1;
+	private int abilityID = 0;
 	
 	protected int baseHealthIncrease;
 	protected int baseManaIncrease;

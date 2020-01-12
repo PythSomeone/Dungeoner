@@ -35,7 +35,6 @@ public class Character {
 		this.inteligence = inteligence;
 		this.luck = luck;
 		this.toughness = toughness;
-		
 	}
 	
 	public boolean isAlive()
