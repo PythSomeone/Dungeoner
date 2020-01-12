@@ -1,46 +1,56 @@
 package CombatSystem;
 
 import Characters.Character;
+import Characters.Hero;
+import Characters.Monster;
+import GameEngine.Log;
 
 public class Combat {
-	public Character player;
-	public Character opponent;
+	
+	public Hero player;
+	public Monster enemy;
 	public Character winner;
 
-	
-	public Combat(Character player, Character opponent) {
+	public Combat(Hero player, Monster enemy) {
+		
 		this.player=player;
-		this.opponent=opponent;
+		this.enemy=enemy;
 		for(;;) {
 			
-			attack(player,opponent);
-			if(!opponent.isAlive()) {
+			playerAttack(player,enemy);
+			if(!enemy.isAlive()) {
 				setWinner(player);
 				break;
 			}
 			
-			attack(opponent,player);
+			enemyAttack(player,enemy);
 			if(!player.isAlive()) {
-				setWinner(opponent);
+				setWinner(enemy);
 				break;
 			}
 		}
 	}
 	
+
+	
+	
+	public void playerAttack(Hero player,Monster enemy){
+		Log.info("Choose your ability to attack your enemy");
+		player.printAbilityList();
+			
+		
+
+	}
+	public void enemyAttack(Hero player,Monster enemy){
+		String attackType = attacker.getAbility();
+		
+
+	}
 	public String getWinner() {
 		return winner.getName()+"has won";
 	}
+	
 	public void setWinner(Character winner) {
 		this.winner=winner;
-	}
-	public void attack(Character attacker,Character defender){
-		/*String attackType = attacker.getPreferableAttack();
-		if(attackType == "physical") {
-			
-		}
-		if(attackType == "magical") {
-			
-		}*/
-
 	}
 }
