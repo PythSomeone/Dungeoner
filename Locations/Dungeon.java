@@ -29,7 +29,7 @@ public class Dungeon {
 			else {
 				Log.info("You've stumbled upon group of enemies, prepare to fight");
 				MonsterGenerator.setGenerator(getNumber(),getNumber(),getNumber());
-				MonsterGenerator.generate(hero);
+				monsters = MonsterGenerator.generate(hero);
 				for(Monster enemy:monsters) {
 					Combat fight = new Combat(hero, enemy);
 					fight.getWinner();
