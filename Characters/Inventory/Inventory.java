@@ -20,6 +20,20 @@ public class Inventory {
 		}
 	}
 	
+	public static void deleteItem(int ID) {
+		int index = -1;
+		for(ItemsInterface item : inventory) { // LOOK FOR ID
+			if(item.getID() == ID) {
+				index = inventory.indexOf(item);
+			}
+		}
+		if(index != -1) {
+			inventory.remove(index);
+			Log.info("Item with index [" + index + "] have been removed from your inventory");
+		}
+		else Log.info("You dont have this item in inventory");
+	}
+	
 	public static void inventoryInfo() {
 		if(inventory.isEmpty())	Log.info("Your inventory is empty!");
 		else {

@@ -38,6 +38,7 @@ public static void main(String[] args)
 			hero.inventory.addItem(armor);
 			Log.info();
 			hero.inventory.inventoryInfo();
+			hero.inventory.deleteItem(5);
 			Log.info(".....................................................................................................");
 		}
 		
