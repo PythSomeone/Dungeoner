@@ -22,10 +22,15 @@ public class Dungeon {
 		this.dungeonLevel=hero.getLevel();
 		
 		
-		for(int i=0;i<rand.nextInt(8)-1;i++) {
+		for(int i=0;i<rand.nextInt(8)+3;i++) {
+			if(!hero.isAlive()) { 
+				Log.info("You died!");
+				break;
+			}
 			if(rand.nextInt(20)%19==0) {
 				Log.info("You've reached to the TREASURE ROOM!");
 			}
+			
 			else {
 				Log.info("You've stumbled upon group of enemies, prepare to fight");
 				MonsterGenerator.setGenerator(getNumber(),getNumber(),getNumber());
@@ -33,6 +38,7 @@ public class Dungeon {
 				for(Monster enemy:monsters) {
 					Combat fight = new Combat(hero, enemy);
 					fight.getWinner();
+					if(!hero.isAlive()) break;
 				}
 			}
 		}
