@@ -16,18 +16,20 @@ public class Combat {
 		this.player=player;
 		this.enemy=enemy;
 		for(;;) {
-			
+			/*
 			playerAttack(player,enemy);
 			if(!enemy.isAlive()) {
 				setWinner(player);
 				break;
 			}
+			*/
 			
 			enemyAttack(player,enemy);
 			if(!player.isAlive()) {
 				setWinner(enemy);
 				break;
 			}
+			
 		}
 	}
 	
@@ -42,7 +44,9 @@ public class Combat {
 
 	}
 	public void enemyAttack(Hero player,Monster enemy){
-		String attackType = attacker.getAbility();
+		
+		int damage=enemy.getRandomAbility().getMultiplier()*enemy.getStrenght();
+		player.dealDamage(damage);
 		
 
 	}
