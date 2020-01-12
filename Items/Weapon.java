@@ -25,6 +25,7 @@ public class Weapon extends _Item {
 		Log.info("Name : " + this.name);
 		Log.info("Damage : " + this.damage);
 		Log.info("Value : " + this.value);
+		Log.info();
 	}
 	
 	public boolean canBeEquipped() {
