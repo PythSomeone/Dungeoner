@@ -5,44 +5,68 @@ import java.util.ArrayList;
 import Characters.Hero;
 import GameEngine.Log;
 import Interfaces.ItemsInterface;
-import Items._Item;
 import Items.Weapon;
 import Items.Armor;
 
 public class Inventory {
 	
-	private static final int inventorySize = 10;
+	private final int inventorySize = 10;
 	
-	private static ArrayList<ItemsInterface> inventory = new ArrayList<>();
+	private int gold = 0;
 	
-	public static void addItem(ItemsInterface item) {
-		if(!isFull()) {
-			inventory.add(item);
-			Log.info(item.getName() + " have been added to your inventory");
-		}
-		else {
-			Log.info("Inventory is full! You cant pick it up");
-		}
-	}
+	private ArrayList<ItemsInterface> inventory = new ArrayList<>();
 	
-	public static void deleteItem(int ID) {
-		int index = -1;
-		String name = null;
-		for(ItemsInterface item : inventory) { // LOOK FOR ID
-			if(item.getID() == ID) {
-				index = inventory.indexOf(item);
-				name = item.getName();
+	public void addItem(ItemsInterface item) {		
+		if(isDuplicate(item.getID())) {
+			if(!item.allowMultiple()) Log.info("You allready have this item in your inventory");
+			else {
+				item.addAmount();
+				Log.info(item.getName() + " have been added to your inventory");
 			}
 		}
-		if(index != -1) {
-			inventory.remove(index);
-			if(name != null)	Log.info(name + " have been removed from your inventory");
-			else Log.info("Dupa");
+		else {
+			if(!isFull()) {
+				inventory.add(item);
+				Log.info(item.getName() + " have been added to your inventory");
+			}
+			else {
+				Log.info("Inventory is full! You cant pick it up");
+			}
 		}
-		else Log.info("You dont have this item in inventory");
 	}
 	
-	public static Weapon getWeapon(int ID) {
+	public void deleteItem(int ID) {
+		
+		int index = -1;
+		String name = null;
+		boolean allowMultiple = false;
+		
+		for(ItemsInterface item : inventory) { // LOOK FOR ID
+			if(item.getID() == ID) {
+				name = item.getName();
+				if(!item.allowMultiple()) index = inventory.indexOf(item);	
+				else {
+					allowMultiple = true;
+					if(item.getAmount() > 1) {
+						item.decreaseAmount();
+						Log.info(name + " have been removed from your inventory");
+					}
+					else {
+						index = inventory.indexOf(item);
+					}
+				}
+			}
+		}
+		
+		if(index != -1) {
+			inventory.remove(index);
+			Log.info(name + " have been removed from your inventory");
+		}
+		else if(!allowMultiple) Log.info("You dont have this item in inventory");
+		
+	}
+	
+	private Weapon getWeapon(int ID) {
 		Weapon pushItem = null;
 		for(ItemsInterface item : inventory) { // LOOK FOR ID
 			if(item.getID() == ID) {
@@ -53,7 +77,7 @@ public class Inventory {
 		else return null;
 	}
 	
-	public static Armor getArmor(int ID) {
+	private Armor getArmor(int ID) {
 		Armor pushItem = null;
 		for(ItemsInterface item : inventory) { // LOOK FOR ID
 			if(item.getID() == ID) {
@@ -64,7 +88,8 @@ public class Inventory {
 		else return null;
 	}
 	
-	public static void equip(Hero hero, int ID) {
+	public void equip(Hero hero, int ID) {
+
 		if(hero.inventory.getArmor(ID) != null)	{
 			if(hero.armor != null) hero.inventory.addItem(hero.armor);
 			hero.equipArmor(hero.inventory.getArmor(ID));
@@ -79,22 +104,38 @@ public class Inventory {
 		}
 	}
 	
-	public static void inventoryInfo() {
+	public void inventoryInfo() {
 		if(inventory.isEmpty())	Log.info("Your inventory is empty!");
 		else {
 			for(ItemsInterface item : inventory) {
 				Log.info("ID : " + item.getID());
 				Log.info("Name : " + item.getName());
 				Log.info("Type : " + item.getType());
-				if(item.getType().equals("Weapon"))		Log.info("Damage : " + item.getStats());
-				else if(item.getType().equals("Armor")) Log.info("Defence : " + item.getStats());
+				if(item.getType().equals("Weapon"))				Log.info("Damage : " + item.getStats());
+				else if(item.getType().equals("Armor")) 		Log.info("Defence : " + item.getStats());
+				else if(item.getType().equals("Consumable"))	Log.info("Amount : " + item.getStats());
 				Log.info("Value : " + item.getValue());
 				Log.info();
 			}
 		}	
 	}
 	
-	public static boolean isFull() {
+	public void setGold(int value) {
+		gold += value;
+	}
+	
+	public int getGold() {
+		return gold;
+	}
+	
+	public boolean isDuplicate(int ID) {
+		for(ItemsInterface item : inventory) {
+			if(item.getID() == ID) return true;
+		}
+		return false;
+	}
+	
+	public boolean isFull() {
 		if(inventory.size() == inventorySize) return true;
 		else return false;
 	}

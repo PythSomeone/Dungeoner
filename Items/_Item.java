@@ -8,6 +8,7 @@ public class _Item implements ItemsInterface {
 	
 	protected int id;
 	protected int value;
+	protected int amount = 1;
 	
 	protected String name;
 	protected String type;
@@ -57,6 +58,22 @@ public class _Item implements ItemsInterface {
 
 	public String getType() {
 		return type;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void addAmount() {
+		amount++;
+	}
+	
+	public void decreaseAmount() {
+		amount--;
+	}
+
+	public boolean allowMultiple() {
+		return false;
 	}
 
 }

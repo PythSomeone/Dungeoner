@@ -3,28 +3,27 @@ package Items;
 public class Consumable extends _Item {
 
 	private int power;	
-	private int amount;
 	
-	public Consumable(String name, int value, int damage) {
+	public Consumable(String name, int value, int power) {
 		super(name);
 		this.power = power;
 		this.value = value;
 		this.type = "Consumable";
 	}
 	
-	public int getPower() {
+	public int getStats() {
 		return power;
 	}
 	
-	public void addConsumable() {
-		amount++;
-	}
-	
-	public void drinkConsumable() {
-		amount--;
+	public int getAmount() {
+		return amount;
 	}
 	
 	public boolean isConsumable() {
+		return true;
+	}
+	
+	public boolean allowMultiple() {
 		return true;
 	}
 	
