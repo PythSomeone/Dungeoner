@@ -26,8 +26,8 @@ public class Hero extends Character {
 	private int requiredExp;
 	private int currentExp = 0;
 	private int statAmount = 0;
-	private int abilityID = 0;
 	
+	protected int abilityID = 1;
 	protected int baseHealthIncrease;
 	protected int baseManaIncrease;
 	
