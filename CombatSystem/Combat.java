@@ -1,5 +1,6 @@
 package CombatSystem;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Characters.Character;
@@ -39,12 +40,13 @@ public class Combat {
 	
 	
 	public void playerAttack(Hero player,Monster enemy){
+		ArrayList<Ability> abilities = player.getAbilities();
 		Log.info("Choose your ability to attack your enemy");
 		player.printAbilityList();
 		Scanner scan = new Scanner(System.in);
 		String option;
 		option = scan.nextLine();
-		for(Ability ability:Hero.getAbilities())
+		for(Ability ability: abilities)
 		{
 			if(option.equals(ability.getID())) {
 				int damage = ability.getMultiplier()*player.getStrenght();

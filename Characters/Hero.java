@@ -88,13 +88,7 @@ public class Hero extends Character {
 		}
 		return sentence;	
 	}
-	public void printAbilityList(){
-		Log.info("Available abilities: ");
-		for(Ability ability: abilities) {
-			Log.info();
-			Log.info("["+ability.getName()+"]["+ability.getManaUsage()+"]");
-		}
-	}
+	
 	public int getLevel() {
 		return this.level;	
 	}
@@ -103,7 +97,7 @@ public class Hero extends Character {
 		abilities.add(new Ability(abilityID,name,multiplier,manaUsage));
 		this.abilityID++;
 	}
-	public static ArrayList<Ability> getAbilities() {
+	public ArrayList<Ability> getAbilities() {
 		return abilities;
 	}
 }

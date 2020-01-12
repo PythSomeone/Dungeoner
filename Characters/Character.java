@@ -21,7 +21,7 @@ public class Character {
 	protected int luck;
 	protected int toughness;
 	
-	protected static ArrayList<Ability> abilities = new ArrayList<Ability>();
+	protected ArrayList<Ability> abilities = new ArrayList<Ability>();
 	
 	public Character(String name, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness)
 	{
@@ -35,6 +35,14 @@ public class Character {
 		this.inteligence = inteligence;
 		this.luck = luck;
 		this.toughness = toughness;
+	}
+	
+	public void printAbilityList(){
+		Log.info("Available abilities: ");
+		for(Ability ability: abilities) {
+			Log.info();
+			Log.info("["+ability.getName()+"]["+ability.getManaUsage()+"]");
+		}
 	}
 	
 	public boolean isAlive()

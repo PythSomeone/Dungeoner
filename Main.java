@@ -30,6 +30,8 @@ public static void main(String[] args)
 		LootManager.monsterDrop(hero, 10);
 		LootManager.chestDrop(hero);
 		hero.inventory.inventoryInfo();
+		
+	Dungeon dung = new Dungeon(hero);
 
 		
 		
