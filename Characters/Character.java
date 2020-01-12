@@ -97,4 +97,13 @@ public class Character {
 		}
 	}
 	
+	public boolean isHurt() {
+		if(currentHealth < maxHealth) return true;
+		else return false;
+	}
+	public boolean needsMana() {
+		if(currentMana < maxMana) return true;
+		else return false;
+	}
+	
 }
