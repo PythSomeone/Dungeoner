@@ -1,11 +1,7 @@
 package Characters;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
-
 import CombatSystem.Ability;
-import GameEngine.Log;
 
 public class Monster extends Character {
 	
@@ -14,8 +10,7 @@ public class Monster extends Character {
 	}
 
 
-	private int experience;
-	private int gold;
+	protected int experience;
 
 	
 	public void addAbility(int abilityID, String name, int multiplier, int manaUsage) {

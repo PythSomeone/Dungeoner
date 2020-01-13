@@ -4,17 +4,17 @@ import Characters.Monster;
 import CombatSystem.Ability;
 
 public class Ghul extends Monster {
-
+	
 	public Ghul(String name, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness, int level) {
 		super(name, health, mana, strenght, agility, inteligence, luck, toughness, level);
+		
+		this.experience = 7 * level;
+		this.strenght = 8 + level;
 		
 		addAbility(0,"Slice", 1, 5);
 		addAbility(0,"Slash", 1, 5);
 		addAbility(0,"Hack", 1, 5);
 		
-		//abilities.add(new Ability("Slice", 1, 5));
-		//abilities.add(new Ability("Slash", 2, 50));
-		//abilities.add(new Ability("Hack", 3, 250));
 	}
 	
 
