@@ -6,6 +6,9 @@ import java.util.Scanner;
 import Characters.Character;
 import Characters.Hero;
 import Characters.Monster;
+import Characters.CharacterClasses.Assassin;
+import Characters.CharacterClasses.Mage;
+import Characters.CharacterClasses.Warrior;
 import GameEngine.Log;
 
 public class Combat {
@@ -65,8 +68,22 @@ public class Combat {
 		for(Ability ability: abilities)
 		{
 			if(opt == ability.getID()) {
-				int damage = (ability.getMultiplier()*player.getStrenght())-enemy.getToughness();
+				int damage = 0;
+				if(player instanceof Assassin) {
+					damage = ability.getMultiplier()*(player.getAgility()+player.getWeapon().getStats())-enemy.getToughness();
+					
+				}
+				if(player instanceof Warrior) {
+					damage = ability.getMultiplier()*(player.getStrenght()+player.getWeapon().getStats())-enemy.getToughness();
+					
+				}
+				if(player instanceof Mage) {
+					damage = ability.getMultiplier()*(player.getInteligence()+player.getWeapon().getStats())-enemy.getToughness();
+					
+				}
+				
 				enemy.dealDamage(damage);
+				
 			}
 		}			
 		
@@ -74,7 +91,7 @@ public class Combat {
 	}
 	
 	public void enemyAttack(Hero player,Monster enemy){
-		int damage=enemy.getRandomAbility().getMultiplier()*enemy.getStrenght();
+		int damage=(enemy.getRandomAbility().getMultiplier()*enemy.getStrenght())-player.getArmor().getStats();
 		player.dealDamage(damage);
 	}
 	
@@ -85,4 +102,5 @@ public class Combat {
 	public void setWinner(Character winner) {
 		this.winner=winner;
 	}
+	
 }

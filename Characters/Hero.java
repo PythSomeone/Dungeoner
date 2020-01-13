@@ -111,4 +111,10 @@ public class Hero extends Character {
 	public ArrayList<Ability> getAbilities() {
 		return abilities;
 	}
+	public Weapon getWeapon() {
+		return this.weapon;
+	}
+	public Armor getArmor() {
+		return this.armor;
+	}
 }

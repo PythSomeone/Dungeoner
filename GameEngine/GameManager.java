@@ -6,6 +6,7 @@ import Characters.CharacterClasses.Mage;
 import Characters.CharacterClasses.Warrior;
 import Items.Armor;
 import Items.Weapon;
+import Locations.Dungeon;
 
 public class GameManager {
 	
@@ -48,6 +49,7 @@ public class GameManager {
 		 Log.info();
 		 Log.info("Now you are ready to face the Dungeoner. Good luck and don't look back!");
 		 Log.info();
+		 Dungeon dungeon = new Dungeon(heroCreated);
 	}
 	
 	public static Hero getHero() {

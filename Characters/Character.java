@@ -57,6 +57,9 @@ public class Character {
 	public int getInteligence() {
 		return this.inteligence;
 	}
+	public int getAgility() {
+		return this.agility;
+	}
 	public int getToughness() {
 		return this.toughness;
 	}
