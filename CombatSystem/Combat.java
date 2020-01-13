@@ -72,25 +72,31 @@ public class Combat {
 		
 		for(Ability ability: abilities)
 		{
-			if(opt == ability.getID()) {
-				int damage = 0;
-				if(player.hasEnoughMana(ability)) {
-					if(player instanceof Assassin) {
-						damage = ability.getMultiplier()*(player.getAgility()+player.getWeapon().getStats())-enemy.getToughness();
-						Log.info(player.getName() + " use " + ability.getName());
-						enemy.dealDamage(damage);
-					}
-					if(player instanceof Warrior) {
-						damage = ability.getMultiplier()*(player.getStrenght()+player.getWeapon().getStats())-enemy.getToughness();
-						Log.info(player.getName() + " use " + ability.getName());
-						enemy.dealDamage(damage);
-					}
-					if(player instanceof Mage) {
-						damage = ability.getMultiplier()*(player.getInteligence()+player.getWeapon().getStats())-enemy.getToughness();
-						Log.info(player.getName() + " use " + ability.getName());
-						enemy.dealDamage(damage);
-					}	
-				}else Log.info("You dont have enough mana");
+			boolean actionDone = false;
+			while(!actionDone) {
+				if(opt == ability.getID()) {
+					int damage = 0;
+					if(player.hasEnoughMana(ability)) {
+						if(player instanceof Assassin) {
+							damage = ability.getMultiplier()*(player.getAgility()+player.getWeapon().getStats())-enemy.getToughness();
+							Log.info(player.getName() + " use " + ability.getName());
+							enemy.dealDamage(damage);
+							actionDone = true;
+						}
+						else if(player instanceof Warrior) {
+							damage = ability.getMultiplier()*(player.getStrenght()+player.getWeapon().getStats())-enemy.getToughness();
+							Log.info(player.getName() + " use " + ability.getName());
+							enemy.dealDamage(damage);
+							actionDone = true;
+						}
+						else if(player instanceof Mage) {
+							damage = ability.getMultiplier()*(player.getInteligence()+player.getWeapon().getStats())-enemy.getToughness();
+							Log.info(player.getName() + " use " + ability.getName());
+							enemy.dealDamage(damage);
+							actionDone = true;
+						}	
+					}else Log.info("You dont have enough mana");
+				}
 			}
 		}			
 		
