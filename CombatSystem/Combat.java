@@ -74,21 +74,23 @@ public class Combat {
 		{
 			if(opt == ability.getID()) {
 				int damage = 0;
-				if(player instanceof Assassin) {
-					damage = ability.getMultiplier()*(player.getAgility()+player.getWeapon().getStats())-enemy.getToughness();
-					Log.info(player.getName() + " use " + ability.getName());
-				}
-				if(player instanceof Warrior) {
-					damage = ability.getMultiplier()*(player.getStrenght()+player.getWeapon().getStats())-enemy.getToughness();
-					Log.info(player.getName() + " use " + ability.getName());
-				}
-				if(player instanceof Mage) {
-					damage = ability.getMultiplier()*(player.getInteligence()+player.getWeapon().getStats())-enemy.getToughness();
-					Log.info(player.getName() + " use " + ability.getName());
-				}
-				
-				enemy.dealDamage(damage);
-				
+				if(player.hasEnoughMana(ability)) {
+					if(player instanceof Assassin) {
+						damage = ability.getMultiplier()*(player.getAgility()+player.getWeapon().getStats())-enemy.getToughness();
+						Log.info(player.getName() + " use " + ability.getName());
+						enemy.dealDamage(damage);
+					}
+					if(player instanceof Warrior) {
+						damage = ability.getMultiplier()*(player.getStrenght()+player.getWeapon().getStats())-enemy.getToughness();
+						Log.info(player.getName() + " use " + ability.getName());
+						enemy.dealDamage(damage);
+					}
+					if(player instanceof Mage) {
+						damage = ability.getMultiplier()*(player.getInteligence()+player.getWeapon().getStats())-enemy.getToughness();
+						Log.info(player.getName() + " use " + ability.getName());
+						enemy.dealDamage(damage);
+					}	
+				}else Log.info("You dont have enough mana");
 			}
 		}			
 		

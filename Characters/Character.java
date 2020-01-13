@@ -125,4 +125,9 @@ public class Character {
 		if(!isMonster()) Log.info("Toughness : " + toughness);
 	}
 	
+	public boolean hasEnoughMana(Ability ability) {
+		if(ability.getManaUsage() <= currentMana)	return true;
+		return false;
+	}
+	
 }
