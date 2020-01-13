@@ -54,54 +54,51 @@ public class Combat {
 		Scanner scan = new Scanner(System.in);
 		String option;
 		boolean success = false;
+		boolean actionDone = false;
 		int opt = 0;
 
-		while (!success) {
+		while (!success || !actionDone) {
 			Log.info("Choose ability id to attack an enemy ");
 			player.printAbilityList();
 			option = scan.nextLine();
 			try {
 				opt = Integer.parseInt(option);
-				success = true;
+				if(opt <= abilities.size()+1 && opt > 0) success = true;
+				else Log.info("Wrong ID");
 			}
 			catch(NumberFormatException e) {
 				Log.info("Wrong format");
 				success = false;
 			}
-		}
-		
-		for(Ability ability: abilities)
-		{
-			boolean actionDone = false;
-			while(!actionDone) {
-				if(opt == ability.getID()) {
-					int damage = 0;
-					if(player.hasEnoughMana(ability)) {
-						if(player instanceof Assassin) {
-							damage = ability.getMultiplier()*(player.getAgility()+player.getWeapon().getStats())-enemy.getToughness();
-							Log.info(player.getName() + " use " + ability.getName());
-							enemy.dealDamage(damage);
-							actionDone = true;
-						}
-						else if(player instanceof Warrior) {
-							damage = ability.getMultiplier()*(player.getStrenght()+player.getWeapon().getStats())-enemy.getToughness();
-							Log.info(player.getName() + " use " + ability.getName());
-							enemy.dealDamage(damage);
-							actionDone = true;
-						}
-						else if(player instanceof Mage) {
-							damage = ability.getMultiplier()*(player.getInteligence()+player.getWeapon().getStats())-enemy.getToughness();
-							Log.info(player.getName() + " use " + ability.getName());
-							enemy.dealDamage(damage);
-							actionDone = true;
-						}	
-					}else Log.info("You dont have enough mana");
+			
+			for(Ability ability: abilities)
+			{
+					if(opt == ability.getID() && success) {
+						int damage = 0;
+						if(player.hasEnoughMana(ability)) {
+							if(player instanceof Assassin) {
+								damage = ability.getMultiplier()*(player.getAgility()+player.getWeapon().getStats())-enemy.getToughness();
+								Log.info(player.getName() + " use " + ability.getName());
+								enemy.dealDamage(damage);
+								actionDone = true;
+							}
+							else if(player instanceof Warrior) {
+								damage = ability.getMultiplier()*(player.getStrenght()+player.getWeapon().getStats())-enemy.getToughness();
+								Log.info(player.getName() + " use " + ability.getName());
+								enemy.dealDamage(damage);
+								actionDone = true;
+							}
+							else if(player instanceof Mage) {
+								damage = ability.getMultiplier()*(player.getInteligence()+player.getWeapon().getStats())-enemy.getToughness();
+								Log.info(player.getName() + " use " + ability.getName());
+								enemy.dealDamage(damage);
+								actionDone = true;
+							}	
+						}else Log.info("You dont have enough mana");
+					}
 				}
-			}
-		}			
-		
-
-	}
+		}	
+	}			
 	
 	public void enemyAttack(Hero player,Monster enemy){
 		Ability randomAbility = enemy.getRandomAbility();
