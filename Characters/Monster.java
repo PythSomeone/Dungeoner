@@ -27,5 +27,9 @@ public class Monster extends Character {
 		Ability abilty=abilities.get(0);
 		return abilty;
 	}
+	
+	public boolean isMonster() {
+		return true;
+	}
 
 }

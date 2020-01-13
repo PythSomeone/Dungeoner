@@ -59,7 +59,6 @@ public class Inventory {
 				hero.recoverMana(inventory.get( inventory.indexOf(consumable) ).getStats()*hero.getLevel());
 			}
 			deleteItem(ID);
-			Log.info();
 		}
 		else Log.info("You dont have this consumable in inventory");
 	}
@@ -99,13 +98,11 @@ public class Inventory {
 				if(hero.armor != null) hero.inventory.addItem(hero.armor);
 				hero.equipArmor(hero.inventory.getArmor(ID));
 				deleteItem(ID);
-				Log.info();
 			}
 			else if(hero.inventory.getWeapon(ID) != null)	{
 				if(hero.weapon != null) hero.inventory.addItem(hero.weapon);
 				hero.equipWeapon(hero.inventory.getWeapon(ID));
 				deleteItem(ID);
-				Log.info();
 			}
 		}
 		else {
@@ -116,7 +113,6 @@ public class Inventory {
 		if(inventory.isEmpty())	Log.info("Your inventory is empty!");
 		else {
 			Log.info("[INVENTORY]   " + inventory.size() + "/" + inventorySize);
-			Log.info();
 			for(ItemsInterface item : inventory) {
 				Log.info("ID : " + item.getID());
 				Log.info("Name : " + item.getName());
@@ -125,7 +121,6 @@ public class Inventory {
 				else if(item.getType().equals("Armor")) 		Log.info("Defence : " + item.getStats());
 				else if(item.getType().equals("Consumable"))	Log.info("Amount : " + item.getAmount());
 				Log.info("Value : " + item.getValue());
-				Log.info();
 			}
 		}	
 	}
@@ -176,7 +171,6 @@ public class Inventory {
 		String action = null;
 		
 		hero.inventory.inventoryInfo();
-		Log.info();
 		Log.info("Actions available : ");
 		Log.info("REMOVE item");
 		Log.info("EQUIP item");

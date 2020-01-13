@@ -39,9 +39,9 @@ public class Character {
 	
 	public void printAbilityList(){
 		Log.info("Available abilities: ");
+		Log.info("[ID][NAME][MANA COST][MULTIPLIER]");
 		for(Ability ability: abilities) {
-			Log.info();
-			Log.info("["+ability.getID()+"]"+"["+ability.getName()+"]["+ability.getManaUsage()+"]");
+			Log.info("["+ability.getID()+"]"+"["+ability.getName()+"]["+ability.getManaUsage()+"]["+ability.getMultiplier()+"]");
 		}
 	}
 	
@@ -107,6 +107,22 @@ public class Character {
 	public boolean needsMana() {
 		if(currentMana < maxMana) return true;
 		else return false;
+	}
+	
+	public boolean isMonster() {
+		return false;
+	}
+	
+	public void printCharacter() {
+		Log.info("Name : " + name);
+		Log.info("Level : " + level);
+		Log.info("Health : " + maxHealth + "/" + currentHealth);
+		if(!isMonster()) Log.info("Mana : " + maxMana + "/" + currentMana);
+		Log.info("Strenght : " + strenght);
+		Log.info("Agility : " + strenght);
+		Log.info("Inteligence : " + strenght);
+		if(!isMonster()) Log.info("Luck : " + luck);
+		if(!isMonster()) Log.info("Toughness : " + toughness);
 	}
 	
 }

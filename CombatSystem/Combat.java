@@ -21,6 +21,11 @@ public class Combat {
 		
 		this.player=player;
 		this.enemy=enemy;
+		
+		Log.info("Your current oponnent : ");
+		enemy.printCharacter();
+		Log.pressAnyKeyToContinue();
+		
 		for(;;) {
 			
 			playerAttack(player,enemy);
@@ -71,15 +76,15 @@ public class Combat {
 				int damage = 0;
 				if(player instanceof Assassin) {
 					damage = ability.getMultiplier()*(player.getAgility()+player.getWeapon().getStats())-enemy.getToughness();
-					
+					Log.info(player.getName() + " use " + ability.getName());
 				}
 				if(player instanceof Warrior) {
 					damage = ability.getMultiplier()*(player.getStrenght()+player.getWeapon().getStats())-enemy.getToughness();
-					
+					Log.info(player.getName() + " use " + ability.getName());
 				}
 				if(player instanceof Mage) {
 					damage = ability.getMultiplier()*(player.getInteligence()+player.getWeapon().getStats())-enemy.getToughness();
-					
+					Log.info(player.getName() + " use " + ability.getName());
 				}
 				
 				enemy.dealDamage(damage);
@@ -91,12 +96,15 @@ public class Combat {
 	}
 	
 	public void enemyAttack(Hero player,Monster enemy){
-		int damage=(enemy.getRandomAbility().getMultiplier()*enemy.getStrenght())-player.getArmor().getStats();
+		Ability randomAbility = enemy.getRandomAbility();
+		int damage=(randomAbility.getMultiplier()*enemy.getStrenght())-player.getArmor().getStats();
+		Log.info(enemy.getName() + " use " + randomAbility.getName());
 		player.dealDamage(damage);
 	}
 	
 	public void getWinner() {
 		Log.info(winner.getName()+" has won");
+		Log.pressAnyKeyToContinue();
 	}
 	
 	public void setWinner(Character winner) {

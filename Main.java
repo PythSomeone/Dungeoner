@@ -1,5 +1,6 @@
 import Characters.Hero;
 import GameEngine.GameManager;
+import Locations.Dungeon;
 
 
 public class Main 
@@ -14,6 +15,7 @@ public class Main
 		
 		GameManager.greetingMessage();
 		hero = GameManager.getHero();
+		 Dungeon dungeon = new Dungeon(hero);
 		
 }
 }

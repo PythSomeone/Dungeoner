@@ -27,14 +27,19 @@ public class Dungeon {
 			boolean prize=false;
 
 			if(rand.nextInt(20)%19==0) {
-				Log.info("You've reached to the TREASURE ROOM!");
+				Log.info("You've stumbled upon the TREASURE ROOM!");
+				Log.info("Following items have dropped : ");
 				LootManager.chestDrop(hero);
+				Log.pressAnyKeyToContinue();
 			}
 			
 			else {
-				Log.info("You've stumbled upon group of enemies, prepare to fight");
 				MonsterGenerator.setGenerator(getNumber(),getNumber(),getNumber());
 				monsters = MonsterGenerator.generate(hero);
+				
+				if(monsters.size() > 1)					Log.info("You enter the next room. It is filled with all kinds of aggressive monsters. You have no choice but to fight.");
+				else if(monsters.size() == 1)			Log.info("You enter the next room. An enemy is running at you from his center. Get ready to fight.");
+				else if(monsters.size() < 1)			Log.info("You enter the next room. Apart from dirt and dried blood on the walls, there is nothing interesting here.");
 				
 				for(Monster enemy:monsters) {
 					Combat fight = new Combat(hero, enemy);
@@ -42,13 +47,13 @@ public class Dungeon {
 					if(!hero.isAlive()) break;
 				}
 				if(!hero.isAlive()) { 
-					Log.info("You died!");
+					Log.info("You died! Game over, good luck next time!");
 					break;
-				}
-			prize = true;
+				}else prize = true;
+				Log.info("Following items have dropped : ");
+				if(prize) LootManager.monsterDrop(hero, monsters.size());
+				Log.pressAnyKeyToContinue();
 			}
-			Log.info("Following items have dropped");
-			if(prize) LootManager.monsterDrop(hero, monsters.size());
 		}
 
 		
