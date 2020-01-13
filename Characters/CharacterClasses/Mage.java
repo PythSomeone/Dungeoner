@@ -3,7 +3,6 @@ package Characters.CharacterClasses;
 
 
 import Characters.Hero;
-import CombatSystem.Ability;
 
 public class Mage extends Hero {
 
@@ -12,11 +11,11 @@ public class Mage extends Hero {
 		this.baseHealthIncrease = 3;
 		this.baseManaIncrease = 7;
 		
-		addAbility(abilityID,"Regular attack", 100, 0);
-		addAbility(abilityID,"Fire Ball", 150, 50);
-		addAbility(abilityID,"Head butt", 300, 250);
-		addAbility(abilityID,"Meteor Storm", 300, 250);
-		addAbility(abilityID,"Power stroke", 150, 50);
+		addAbility(abilityID,"Regular magic attack", 2, 5);
+		addAbility(abilityID,"Magic missle", 3, 30);
+		addAbility(abilityID,"Flaming tongue", 4, 125);
+		addAbility(abilityID,"Icy wind", 5, 250);
+		addAbility(abilityID,"Fireball", 6, 500);
 		
 		
 	}

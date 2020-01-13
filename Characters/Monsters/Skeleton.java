@@ -1,7 +1,6 @@
 package Characters.Monsters;
 
 import Characters.Monster;
-import CombatSystem.Ability;
 
 public class Skeleton extends Monster {
 	

@@ -1,7 +1,6 @@
 package Characters;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import Characters.Inventory.Inventory;
 import CombatSystem.Ability;
@@ -36,7 +35,7 @@ public class Hero extends Character {
 	
 	public void levelUpCheck()
 	{
-		if(currentExp >= requiredExp) {
+		while(currentExp >= requiredExp) {
 			currentExp -= requiredExp;
 			requiredExp += requiredExpIncrease;
 			requiredExpIncrease *= 2;
@@ -53,13 +52,12 @@ public class Hero extends Character {
 		}
 	}
 	
-	public void distributePoints() {
-		Scanner scan = new Scanner(System.in);
-		
+	public void distributePoints() {	
+		String choice;
 		for(int i = 0; i < this.statAmount; i++) {
 			Log.info("Choose attribute ( " + printAvailableAttributes() + ") :");
 			
-			String choice = scan.nextLine();
+			choice = Log.scanString();
 			
 			if(choice.equalsIgnoreCase("strenght")) this.strenght++;
 			else if(choice.equalsIgnoreCase("agility")) this.agility++;

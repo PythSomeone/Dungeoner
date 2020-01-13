@@ -3,7 +3,6 @@ package Characters.CharacterClasses;
 
 
 import Characters.Hero;
-import CombatSystem.Ability;
 
 public class Warrior extends Hero {
 
@@ -12,11 +11,11 @@ public class Warrior extends Hero {
 		this.baseHealthIncrease = 8;
 		this.baseManaIncrease = 2;
 		
-		addAbility(abilityID,"Regular attack", 100, 0);
-		addAbility(abilityID,"Power stroke", 150, 50);
-		addAbility(abilityID,"Head butt", 300, 250);
-		addAbility(abilityID,"Sword vortex", 300, 250);
-		addAbility(abilityID,"Ground stomp", 300, 250);
+		addAbility(abilityID,"Regular attack", 1, 0);
+		addAbility(abilityID,"Power strike", 2, 5);
+		addAbility(abilityID,"Head butt", 3, 25);
+		addAbility(abilityID,"Ground stomp", 4, 50);
+		addAbility(abilityID,"Sword vortex", 5, 80);
 		
 	}
 	

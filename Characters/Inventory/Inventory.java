@@ -2,7 +2,6 @@ package Characters.Inventory;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 import Characters.Hero;
 import GameEngine.Log;

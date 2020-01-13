@@ -3,7 +3,6 @@ package Characters.CharacterClasses;
 
 
 import Characters.Hero;
-import CombatSystem.Ability;
 
 public class Assassin extends Hero {
 
@@ -12,12 +11,11 @@ public class Assassin extends Hero {
 		this.baseHealthIncrease = 5;
 		this.baseManaIncrease = 5;
 		
-		
-		addAbility(abilityID,"Regular attack", 100, 0);
-		addAbility(abilityID,"Power stroke", 150, 50);
-		addAbility(abilityID,"Head butt", 300, 250);
-		addAbility(abilityID,"Ground stomp", 300, 250);
-		addAbility(abilityID,"Sword vortex", 300, 250);
+		addAbility(abilityID,"Regular attack", 1, 0);
+		addAbility(abilityID,"Throw poison bomb", 2, 5);
+		addAbility(abilityID,"Silent move", 3, 25);
+		addAbility(abilityID,"Backstab", 4, 50);
+		addAbility(abilityID,"Hijutsu strike", 5, 80);
 		
 		
 	}
