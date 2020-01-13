@@ -22,7 +22,8 @@ public class Hero extends Character {
 	}
 	
 	protected String title;
-	private int requiredExp;
+	private int requiredExpIncrease = 50;
+	private int requiredExp = 100;
 	private int currentExp = 0;
 	private int statAmount = 0;
 	
@@ -33,18 +34,23 @@ public class Hero extends Character {
 	
 	private String[] availableAttributes = {"strenght","agility","inteligence","luck","toughness"};
 	
-	public void levelUp()
+	public void levelUpCheck()
 	{
-		this.maxHealth += level * baseHealthIncrease;
-		this.maxMana += level * baseManaIncrease;
-		this.currentHealth = this.maxHealth;
-		this.currentMana = this.maxMana;
-		this.statAmount += 5;
-		level++;
-		
-		Log.info("You've leveled up!  (+" 
-		+ level * baseHealthIncrease + " health | +" 
-		+ level * baseManaIncrease + " mana)");		
+		if(currentExp >= requiredExp) {
+			currentExp -= requiredExp;
+			requiredExp += requiredExpIncrease;
+			requiredExpIncrease *= 2;
+			maxHealth += level * baseHealthIncrease;
+			maxMana += level * baseManaIncrease;
+			currentHealth = maxHealth;
+			currentMana = maxMana;
+			statAmount += 5;
+			level++;
+			
+			Log.info("You've leveled up!  (+" 
+			+ level * baseHealthIncrease + " health | +" 
+			+ level * baseManaIncrease + " mana)");		
+		}
 	}
 	
 	public void distributePoints() {

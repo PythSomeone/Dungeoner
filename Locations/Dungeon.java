@@ -30,7 +30,6 @@ public class Dungeon {
 				Log.info("You've stumbled upon the TREASURE ROOM!");
 				Log.info("Following items have dropped : ");
 				LootManager.chestDrop(hero);
-				Log.pressAnyKeyToContinue();
 			}
 			
 			else {
@@ -52,7 +51,6 @@ public class Dungeon {
 				}else prize = true;
 				Log.info("Following items have dropped : ");
 				if(prize) LootManager.monsterDrop(hero, monsters.size());
-				Log.pressAnyKeyToContinue();
 			}
 		}
 
