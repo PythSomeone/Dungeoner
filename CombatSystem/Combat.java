@@ -82,18 +82,21 @@ public class Combat {
 								damage = ability.getMultiplier()*(player.getAgility()+player.getWeapon().getStats())-enemy.getToughness();
 								Log.info(player.getName() + " use " + ability.getName());
 								enemy.dealDamage(damage);
+								player.burnMana(ability.getManaUsage());
 								actionDone = true;
 							}
 							else if(player instanceof Warrior) {
 								damage = ability.getMultiplier()*(player.getStrenght()+player.getWeapon().getStats())-enemy.getToughness();
 								Log.info(player.getName() + " use " + ability.getName());
 								enemy.dealDamage(damage);
+								player.burnMana(ability.getManaUsage());
 								actionDone = true;
 							}
 							else if(player instanceof Mage) {
 								damage = ability.getMultiplier()*(player.getInteligence()+player.getWeapon().getStats())-enemy.getToughness();
 								Log.info(player.getName() + " use " + ability.getName());
 								enemy.dealDamage(damage);
+								player.burnMana(ability.getManaUsage());
 								actionDone = true;
 							}	
 						}else Log.info("You dont have enough mana");
