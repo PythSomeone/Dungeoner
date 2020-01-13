@@ -31,6 +31,8 @@ public class Combat {
 			playerAttack(player,enemy);
 			if(!enemy.isAlive()) {
 				setWinner(player);
+				player.levelUpCheck();
+				player.distributePoints();
 				break;
 			}
 			
