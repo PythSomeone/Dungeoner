@@ -37,8 +37,8 @@ public class Hero extends Character {
 		Log.info("Name : " + name);
 		Log.info("Level : " + level);
 		Log.info("Experience : " + currentExp + "/" + requiredExp);
-		Log.info("Health : " + maxHealth + "/" + currentHealth);
-		Log.info("Mana : " + maxMana + "/" + currentMana);
+		Log.info("Health : " + currentHealth + "/" + maxHealth);
+		Log.info("Mana : " + currentMana + "/" + maxMana);
 		Log.info("Strenght : " + strenght);
 		Log.info("Agility : " + strenght);
 		Log.info("Inteligence : " + strenght);
