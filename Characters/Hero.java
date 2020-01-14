@@ -131,6 +131,8 @@ public class Hero extends Character {
 	}
 	
 	public void heroMenu(Hero hero) {
+		//[CHOICE]//
+			boolean closed = false;
 			String action = null;
 			
 			Log.info("Actions available : ");
@@ -138,7 +140,7 @@ public class Hero extends Character {
 			Log.info("DISTRIBUTE skill points");
 			Log.info("BACK");
 
-			for(;;) {
+			while(!closed == true) {
 				action = Log.scanString();
 				//HERO INFO
 				if(action.equalsIgnoreCase("Info")) {
@@ -161,7 +163,7 @@ public class Hero extends Character {
 				//BACK
 				else if(action.equalsIgnoreCase("Back")) {
 					try {
-						GameManager.restMenu(hero);
+						closed = true;
 					}
 					catch(InputMismatchException e) {
 						Log.info("INVALID FORMAT");

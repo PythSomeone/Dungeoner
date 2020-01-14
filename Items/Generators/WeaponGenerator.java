@@ -11,7 +11,7 @@ public class WeaponGenerator {
         return (adjectives[(int) (Math.random() * adjectives.length)]+" "+names[(int) (Math.random() * names.length)]);
     }
 	
-	public static String getRandomAssasinName() {
+	public static String getRandomAssassinName() {
         String[] names = {"Dagger", "Katana", "Scythe", "Kusarigama", "Kunai", "Tekko-Kagi", "Manriki-Gusari", "Tekken", "Nekode", "Shikomizue"};
         return (adjectives[(int) (Math.random() * adjectives.length)]+" "+names[(int) (Math.random() * names.length)]);
     }
@@ -24,7 +24,7 @@ public class WeaponGenerator {
 	
 	public static String getRandomName(Hero hero) {
 		if(hero.getTitle().equals("Warrior")) return getRandomWarriorName();
-		else if(hero.getTitle().equals("Assasin")) return getRandomAssasinName();
+		else if(hero.getTitle().equals("Assassin")) return getRandomAssassinName();
 		else if(hero.getTitle().equals("Mage")) return getRandomMageName();
 		return "dupa";
 	}

@@ -167,7 +167,9 @@ public class Inventory {
 		}
 	}
 	public void openMenu(Hero hero) {
+		//[CHOICE]//
 		String action = null;
+		boolean closed = false;
 		
 		hero.getInventory().inventoryInfo();
 		Log.info("Actions available : ");
@@ -177,7 +179,7 @@ public class Inventory {
 		Log.info("SHOW inventory");
 		Log.info("BACK");
 		
-		for(;;) {
+		while(!closed == true) {
 			action = Log.scanString();
 			//REMOVE ITEM
 			if(action.equalsIgnoreCase("Remove")) {
@@ -223,7 +225,7 @@ public class Inventory {
 			//BACK
 			else if(action.equalsIgnoreCase("Back")) {
 				try {
-					GameManager.restMenu(hero);
+					closed = true;
 				}
 				catch(InputMismatchException e){
 					Log.info("INVALID FORMAT");
