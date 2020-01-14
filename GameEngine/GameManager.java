@@ -1,7 +1,5 @@
 package GameEngine;
 
-import java.util.InputMismatchException;
-
 import Characters.Hero;
 import Characters.CharacterClasses.Assassin;
 import Characters.CharacterClasses.Mage;
@@ -51,40 +49,20 @@ public class GameManager {
 		boolean closed = false;
 		String action = null;
 		
-		Log.info("Actions available : ");
-		Log.info("Check hero STATUS");
-		Log.info("Manage INVENTORY");
-		Log.info("Keep GOing");
-		
-		while(closed == false) {
+		while(!closed) {
+			Log.info("Actions available : ");
+			Log.info("Check hero STATUS");
+			Log.info("Manage INVENTORY");
+			Log.info("Keep GOing");
+			
 			action = Log.scanString();
 			//[HERO STATUS]//
-			if(action.equalsIgnoreCase("Status")) {
-				try {
-					hero.heroMenu(hero);
-				}
-				catch(InputMismatchException e) {
-					Log.info("INVALID FORMAT");
-				}	
-			}
+			if(action.equalsIgnoreCase("Status")) hero.heroMenu(hero);
 			//[INVENTORY]//
-			else if(action.equalsIgnoreCase("Inventory")) {
-				try {
-					hero.getInventory().openMenu(hero);
-				}
-				catch(InputMismatchException e) {
-					Log.info("INVALID FORMAT");
-				}	
-			}
+			else if(action.equalsIgnoreCase("Inventory")) hero.getInventory().openMenu(hero);
 			//[KEEP GOING]//
-			else if(action.equalsIgnoreCase("Go")) {
-				try {
-					closed = true;
-				}
-				catch(InputMismatchException e) {
-					Log.info("INVALID FORMAT");
-				}	
-			}
+			else if(action.equalsIgnoreCase("Go")) closed = true;
+			
 			else Log.info("Wrong input");
 		}
 		

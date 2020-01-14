@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import Characters.Hero;
-import GameEngine.GameManager;
 import GameEngine.Log;
 import Interfaces.ItemInterface;
 import Inventory.Items.Armor;
@@ -179,9 +178,9 @@ public class Inventory {
 		Log.info("SHOW inventory");
 		Log.info("BACK");
 		
-		while(!closed == true) {
+		while(closed) {
 			action = Log.scanString();
-			//REMOVE ITEM
+			//[REMOVE ITEM]//
 			if(action.equalsIgnoreCase("Remove")) {
 				try {
 					Log.info("Give ID of an item : ");
@@ -191,7 +190,7 @@ public class Inventory {
 					Log.info("INVALID FORMAT");
 				}	
 			}
-			//EQUIP ITEM
+			//[EQUIP ITEM]//
 			else if(action.equalsIgnoreCase("Equip")) {
 				try {
 					Log.info("Give ID of an item : ");
@@ -201,7 +200,7 @@ public class Inventory {
 					Log.info("INVALID FORMAT");
 				}	
 			}
-			//USE ITEM
+			//[USE ITEM]//
 			else if(action.equalsIgnoreCase("Use")) {
 				if(hero.isHurt() || hero.needsMana()) {
 					try {
@@ -213,25 +212,13 @@ public class Inventory {
 					}	
 				}else Log.info("You dont need a potion");	
 			}
-			//SHOW INVENTORY
-			else if(action.equalsIgnoreCase("Show")) {
-				try {
+			//[SHOW INVENTORY]//
+			else if(action.equalsIgnoreCase("Show")) 
 					hero.getInventory().inventoryInfo();
-				}
-				catch(InputMismatchException e){
-					Log.info("INVALID FORMAT");
-				}
-			}
 			//BACK
-			else if(action.equalsIgnoreCase("Back")) {
-				try {
+			else if(action.equalsIgnoreCase("Back")) 	
 					closed = true;
-				}
-				catch(InputMismatchException e){
-					Log.info("INVALID FORMAT");
-				}
-			}
-			
+
 			else Log.info("Wrong input");
 		}
 	}

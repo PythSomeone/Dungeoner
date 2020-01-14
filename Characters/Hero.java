@@ -1,10 +1,8 @@
 package Characters;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 
 import CombatSystem.Ability;
-import GameEngine.GameManager;
 import GameEngine.Log;
 import Inventory.Inventory;
 import Inventory.Items.Armor;
@@ -140,35 +138,15 @@ public class Hero extends Character {
 			Log.info("DISTRIBUTE skill points");
 			Log.info("BACK");
 
-			while(!closed == true) {
+			while(!closed) {
 				action = Log.scanString();
-				//HERO INFO
-				if(action.equalsIgnoreCase("Info")) {
-					try {
-						printCharacter();
-					}
-					catch(InputMismatchException e) {
-						Log.info("INVALID FORMAT");
-					}	
-				}
-				//DISTRIBUTE POINTS
-				else if(action.equalsIgnoreCase("Distribute")) {
-					try {
-						distributePoints();
-					}
-					catch(InputMismatchException e) {
-						Log.info("INVALID FORMAT");
-					}	
-				}
-				//BACK
-				else if(action.equalsIgnoreCase("Back")) {
-					try {
-						closed = true;
-					}
-					catch(InputMismatchException e) {
-						Log.info("INVALID FORMAT");
-					}
-				}
+				//[HERO INFO]//
+				if(action.equalsIgnoreCase("Info")) printCharacter();
+				//[DISTRIBUTE POINTS]//
+				else if(action.equalsIgnoreCase("Distribute")) distributePoints();
+				//[BACK]//
+				else if(action.equalsIgnoreCase("Back")) closed = true;
+
 				else Log.info("Wrong input");
 		}
 	}
