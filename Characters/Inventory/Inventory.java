@@ -49,12 +49,12 @@ public class Inventory {
 		
 	}
 	private void useItem(Hero hero, int ID) {
-		 Consumable consumable = hero.inventory.getConsumable(ID);
+		 Consumable consumable = hero.getInventory().getConsumable(ID);
 		if(consumable != null)	{
-			if(hero.inventory.getConsumable(ID).getName().equals("Life potion"))  {
+			if(hero.getInventory().getConsumable(ID).getName().equals("Life potion"))  {
 				hero.recoverHealth(inventory.get( inventory.indexOf(consumable) ).getStats()*hero.getLevel());
 			}
-			if(hero.inventory.getConsumable(ID).getName().equals("Mana potion"))  {
+			if(hero.getInventory().getConsumable(ID).getName().equals("Mana potion"))  {
 				hero.recoverMana(inventory.get( inventory.indexOf(consumable) ).getStats()*hero.getLevel());
 			}
 			deleteItem(ID);
@@ -93,14 +93,14 @@ public class Inventory {
 	}
 	private void equip(Hero hero, int ID) {
 		if(isInInventory(ID)) {
-			if(hero.inventory.getArmor(ID) != null)	{
-				if(hero.armor != null) hero.inventory.addItem(hero.armor);
-				hero.equipArmor(hero.inventory.getArmor(ID));
+			if(hero.getInventory().getArmor(ID) != null)	{
+				if(hero.getArmor() != null) hero.getInventory().addItem(hero.getArmor());
+				hero.equipArmor(hero.getInventory().getArmor(ID));
 				deleteItem(ID);
 			}
-			else if(hero.inventory.getWeapon(ID) != null)	{
-				if(hero.weapon != null) hero.inventory.addItem(hero.weapon);
-				hero.equipWeapon(hero.inventory.getWeapon(ID));
+			else if(hero.getInventory().getWeapon(ID) != null)	{
+				if(hero.getWeapon() != null) hero.getInventory().addItem(hero.getWeapon());
+				hero.equipWeapon(hero.getInventory().getWeapon(ID));
 				deleteItem(ID);
 			}
 		}
@@ -169,7 +169,7 @@ public class Inventory {
 		boolean closed = false;
 		String action = null;
 		
-		hero.inventory.inventoryInfo();
+		hero.getInventory().inventoryInfo();
 		Log.info("Actions available : ");
 		Log.info("REMOVE item");
 		Log.info("EQUIP item");
@@ -183,7 +183,7 @@ public class Inventory {
 			if(action.equalsIgnoreCase("Remove")) {
 				try {
 					Log.info("Give ID of an item : ");
-					hero.inventory.deleteItem(Log.scanInt());
+					hero.getInventory().deleteItem(Log.scanInt());
 				}
 				catch(InputMismatchException e) {
 					Log.info("NIEPOPRAWNY FORMAT!");
@@ -193,7 +193,7 @@ public class Inventory {
 			else if(action.equalsIgnoreCase("Equip")) {
 				try {
 					Log.info("Give ID of an item : ");
-					hero.inventory.equip(hero, Log.scanInt());
+					hero.getInventory().equip(hero, Log.scanInt());
 				}
 				catch(InputMismatchException e) {
 					Log.info("NIEPOPRAWNY FORMAT!");
@@ -204,7 +204,7 @@ public class Inventory {
 				if(hero.isHurt() || hero.needsMana()) {
 					try {
 						Log.info("Give ID of an item : ");
-						hero.inventory.useItem(hero, Log.scanInt());
+						hero.getInventory().useItem(hero, Log.scanInt());
 					}
 					catch(InputMismatchException e) {
 						Log.info("NIEPOPRAWNY FORMAT!");
@@ -212,7 +212,7 @@ public class Inventory {
 				}else Log.info("You dont need a potion");	
 			}
 			//SHOW INVENTORY
-			else if(action.equalsIgnoreCase("Show"))	hero.inventory.inventoryInfo();
+			else if(action.equalsIgnoreCase("Show"))	hero.getInventory().inventoryInfo();
 			//CLOSE INVENTORY
 			else if(action.equalsIgnoreCase("Close")) closed = true;
 			

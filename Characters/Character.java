@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import CombatSystem.Ability;
 import GameEngine.Log;
 
-public class Character {
+public abstract class Character {
 	
 	protected int level = 1;
 	protected int maxHealth;

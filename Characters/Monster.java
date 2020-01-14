@@ -3,7 +3,7 @@ package Characters;
 import java.util.Collections;
 import CombatSystem.Ability;
 
-public class Monster extends Character {
+public abstract class Monster extends Character {
 	
 	public Monster(String name, int health, int mana, int strenght, int agility, int inteligence, int luck,int toughness,int level) {
 		super(name, health, mana, strenght, agility, inteligence, luck, toughness);

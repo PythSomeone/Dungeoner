@@ -10,9 +10,9 @@ import Items.Weapon;
 
 public class Hero extends Character {
 
-	public Inventory inventory;
-	public Weapon weapon;
-	public Armor armor;
+	private Inventory inventory;
+	private Weapon weapon;
+	private Armor armor;
 	
 	public Hero(String name, String title, int health, int mana, int strenght, int agility, int inteligence, int luck, int toughness) {
 		super(name, health, mana, strenght, agility, inteligence, luck, toughness);	
@@ -116,9 +116,12 @@ public class Hero extends Character {
 		return abilities;
 	}
 	public Weapon getWeapon() {
-		return this.weapon;
+		return weapon;
 	}
 	public Armor getArmor() {
-		return this.armor;
+		return armor;
+	}
+	public Inventory getInventory() {
+		return inventory;
 	}
 }

@@ -2,7 +2,7 @@ package Items;
 
 import Interfaces.ItemsInterface;
 
-public class _Item implements ItemsInterface {
+public abstract class _Item implements ItemsInterface {
 	
 	private static int SET_ID = 0;
 	

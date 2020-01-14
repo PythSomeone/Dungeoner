@@ -34,19 +34,19 @@ public class LootManager {
 				Weapon weapon = new Weapon( WeaponGenerator.getRandomName( hero ), 	//WEAPON GENERATOR
 						WeaponGenerator.generateValue( hero ),
 						WeaponGenerator.generateDamage( hero ) );
-				hero.inventory.addItem(weapon);
+				hero.getInventory().addItem(weapon);
 			}else if(roll <= armorChance) {
 				Armor armor = new Armor( ArmorGenerator.getRandomName(), 				//ARMOR GENERATOR
 						ArmorGenerator.generateValue( hero ),
 						ArmorGenerator.generateArmor( hero ) );
-				hero.inventory.addItem(armor);
+				hero.getInventory().addItem(armor);
 			}else if(roll <= consumableChance) {
-				if(roll < consumableChance/2) hero.inventory.addItem(lifePotion);
-				else hero.inventory.addItem(manaPotion);								
+				if(roll < consumableChance/2) hero.getInventory().addItem(lifePotion);
+				else hero.getInventory().addItem(manaPotion);								
 			}
 		}
 		roll = roll(GOLD_DROP_RATE);
-		hero.inventory.setGold( roll * hero.getLevel() * monsterAmount );
+		hero.getInventory().setGold( roll * hero.getLevel() * monsterAmount );
 		Log.info( "You received " + ( roll * hero.getLevel() * monsterAmount ) + " gold" );
 	}
 	
@@ -57,15 +57,15 @@ public class LootManager {
 			Weapon weapon = new Weapon( WeaponGenerator.getRandomName( hero ), 	//WEAPON GENERATOR
 					WeaponGenerator.generateValue( hero ),
 					WeaponGenerator.generateDamage( hero ) );
-			hero.inventory.addItem(weapon);
+			hero.getInventory().addItem(weapon);
 
 			Armor armor = new Armor( ArmorGenerator.getRandomName(), 				//ARMOR GENERATOR
 					ArmorGenerator.generateValue( hero ),
 					ArmorGenerator.generateArmor( hero ) );
-			hero.inventory.addItem(armor);
+			hero.getInventory().addItem(armor);
 
 		roll = roll(GOLD_DROP_RATE);
-		hero.inventory.setGold( roll * hero.getLevel() * 40 );
+		hero.getInventory().setGold( roll * hero.getLevel() * 40 );
 		Log.info( "You received " + ( roll * hero.getLevel() * 40 ) + " gold" );
 		
 	}
