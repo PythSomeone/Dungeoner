@@ -8,7 +8,6 @@ public class Skeleton extends Monster {
 		super(name, health, mana, strenght, agility, inteligence, luck, toughness, level);
 		
 		this.experience = 6 * level;
-		this.strenght = 6 + level;
 		
 		addAbility(0,"Slice", 1, 5);
 		addAbility(0,"Slash", 1, 5);

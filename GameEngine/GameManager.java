@@ -9,9 +9,37 @@ import Inventory.Items.Weapon;
 
 public class GameManager {
 	
+	private static int dungeonsDoneAmount = 0;
+	
 	private static Weapon beginnerWeapon = new Weapon("Wooden stick", 1, 1);
 	private static Armor beginnerArmor = new Armor("Tattered cloth", 1, 1);
 	private static Hero heroCreated;
+	
+	public static boolean gameRunning;
+	
+	public static void mainMenu() {
+		//[CHOICE]//
+				boolean closed = false;
+				String action = null;
+				
+				while(!closed) {
+					Log.info("START game");
+					Log.info("QUIT game");
+					
+					action = Log.scanString();
+					//[START]//
+					if(action.equalsIgnoreCase("Start")) {
+						closed = true;
+					}
+					//[QUIT]//
+					else if(action.equalsIgnoreCase("Quit")) {
+						gameRunning = false;
+						closed = true;
+					}
+					
+					else Log.info("Wrong input");
+				}
+	}
 	
 	public static void greetingMessage() {
 		String nameCreate;
@@ -66,6 +94,10 @@ public class GameManager {
 			else Log.info("Wrong input");
 		}
 		
+	}
+	
+	public static void incrementDungeonsDoneAmount() {
+		dungeonsDoneAmount++;
 	}
 		
 }

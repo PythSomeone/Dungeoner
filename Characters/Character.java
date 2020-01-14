@@ -85,8 +85,12 @@ public abstract class Character {
 		return this.level;
 	}
 	public void dealDamage(int value) {
-		Log.info(this.name + " received " + value + " damage");
-		this.currentHealth-=value;
+		if(value <= 0) {
+			Log.info(this.name + " received no damage, because he is THICC");
+		}else {
+			Log.info(this.name + " received " + value + " damage");
+			this.currentHealth-=value;
+		}
 	}
 	
 	public void recoverHealth(int value) {

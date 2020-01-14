@@ -9,6 +9,7 @@ public abstract class Monster extends Character {
 	
 	public Monster(String name, int health, int mana, int strenght, int agility, int inteligence, int luck,int toughness,int level) {
 		super(name, health, mana, strenght, agility, inteligence, luck, toughness);
+		this.level = level;
 		this.maxHealth *= this.level;
 		this.currentHealth = this.maxHealth;
 		this.maxMana *= this.level;
@@ -16,12 +17,7 @@ public abstract class Monster extends Character {
 		this.strenght *= this.level;
 		this.agility *= this.level;
 		this.inteligence *= this.level;
-		this.luck *= this.level;
-		this.toughness *= this.level;
 	}
-
-
-
 
 	
 	public void addAbility(int abilityID, String name, int multiplier, int manaUsage) {

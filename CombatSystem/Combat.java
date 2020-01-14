@@ -12,14 +12,10 @@ import GameEngine.Log;
 
 public class Combat {
 	
-	private Hero player;
-	private Monster enemy;
 	private Character winner;
 
 	public Combat(Hero player, Monster enemy) {
 		
-		this.player = player;
-		this.enemy = enemy;
 		
 		Log.info("Your current oponnent : ");
 		enemy.printCharacter();

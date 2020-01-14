@@ -7,6 +7,7 @@ import java.util.Random;
 
 import Characters.Hero;
 import Characters.Monster;
+import Characters.Monsters.Ghul;
 import Characters.Monsters.Rat;
 import Characters.Monsters.Skeleton;
 
@@ -29,15 +30,15 @@ public static void setGenerator(int Rat,int Skeleton,int Ghul) {
         Random rand = new Random();
 
         for (int i = 0; i < Rat_COUNT; i++) {
-            queue.add(new Rat("Jacek",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(6)-3 )));
+            queue.add(new Rat("Rat",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(3) ) ) );
         }
 
         for (int i = 0; i < Skeleton_COUNT; i++) {
-            queue.add(new Skeleton("Maciek",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(6)-3 )));
+            queue.add(new Skeleton("Skeleton",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(3) ) ) );
         }
         
         for (int i = 0; i < Ghul_COUNT; i++) {
-            queue.add(new Skeleton("Grzegorz",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(6)-3 )));
+            queue.add(new Ghul("Ghul",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(3) ) ) );
         }
 
 

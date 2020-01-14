@@ -140,7 +140,9 @@ public class Inventory {
 	}
 	
 	
-	
+	public void clearInventory() {
+		inventory.removeAll(inventory);
+	}
 	public void setGold(int value) {
 		gold += value;
 	}
