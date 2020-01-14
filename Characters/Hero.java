@@ -124,4 +124,7 @@ public class Hero extends Character {
 	public Inventory getInventory() {
 		return inventory;
 	}
+	public void giveExp(int value) {
+		currentExp += value;
+	}
 }

@@ -30,8 +30,8 @@ public class Combat {
 			playerAttack(player,enemy);
 			if(!enemy.isAlive()) {
 				setWinner(player);
+				player.giveExp(enemy.getExperience());
 				player.levelUpCheck();
-				player.distributePoints();
 				break;
 			}
 			
@@ -104,7 +104,7 @@ public class Combat {
 	
 	public void enemyAttack(Hero player,Monster enemy){
 		Ability randomAbility = enemy.getRandomAbility();
-		int damage = (randomAbility.getMultiplier() * enemy.getStrenght()) - player.getArmor().getStats();
+		int damage = (randomAbility.getMultiplier() * enemy.getStrenght()) - (player.getArmor().getStats() + player.getToughness());
 		Log.info(enemy.getName() + " use " + randomAbility.getName());
 		player.dealDamage(damage);
 	}
