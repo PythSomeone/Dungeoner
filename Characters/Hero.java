@@ -33,6 +33,19 @@ public class Hero extends Character {
 	
 	private String[] availableAttributes = {"strenght","agility","inteligence","luck","toughness"};
 	
+	public void printCharacter() {
+		Log.info("Name : " + name);
+		Log.info("Level : " + level);
+		Log.info("Experience : " + currentExp + "/" + requiredExp);
+		Log.info("Health : " + maxHealth + "/" + currentHealth);
+		Log.info("Mana : " + maxMana + "/" + currentMana);
+		Log.info("Strenght : " + strenght);
+		Log.info("Agility : " + strenght);
+		Log.info("Inteligence : " + strenght);
+		Log.info("Luck : " + luck);
+		Log.info("Toughness : " + toughness);
+	}
+	
 	public void levelUpCheck()
 	{
 		while(currentExp >= requiredExp) {
@@ -51,42 +64,40 @@ public class Hero extends Character {
 			+ level * baseManaIncrease + " mana)");		
 		}
 	}
-	
 	public void distributePoints() {	
 		String choice;
-		for(int i = 0; i < this.statAmount; i++) {
-			Log.info("Choose attribute ( " + printAvailableAttributes() + ") :");
-			
-			choice = Log.scanString();
-			
-			if(choice.equalsIgnoreCase("strenght")) this.strenght++;
-			else if(choice.equalsIgnoreCase("agility")) this.agility++;
-			else if(choice.equalsIgnoreCase("inteligence")) this.inteligence++;
-			else if(choice.equalsIgnoreCase("luck")) this.luck++;
-			else if(choice.equalsIgnoreCase("toughness")) this.toughness++;
-			else {
-				Log.info("Skill point have not been distributed. Try again!");
-				i--;
+		if(statAmount > 0) {
+			for(int i = 0; i < this.statAmount; i++) {
+				Log.info("Choose attribute ( " + printAvailableAttributes() + ") :");
+				
+				choice = Log.scanString();
+				
+				if(choice.equalsIgnoreCase("strenght")) this.strenght++;
+				else if(choice.equalsIgnoreCase("agility")) this.agility++;
+				else if(choice.equalsIgnoreCase("inteligence")) this.inteligence++;
+				else if(choice.equalsIgnoreCase("luck")) this.luck++;
+				else if(choice.equalsIgnoreCase("toughness")) this.toughness++;
+				else {
+					Log.info("Skill point have not been distributed. Try again!");
+					i--;
+				}
+				Log.info("You've added 1 point to " + choice.toUpperCase());
 			}
-			Log.info("You've added 1 point to " + choice.toUpperCase());
+		}else {
+			Log.info("You don't have skill points to distribute");
 		}
-		Log.info("");
 	}
-	
 	public void equipWeapon(Weapon weapon) {
 		Log.info("You have equipped " + weapon.getName());
 		this.weapon = weapon;
 	}
-	
 	public void equipArmor(Armor armor) {
 		Log.info("You have equipped " + armor.getName());
 		this.armor = armor;
 	}
-	
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 	public String printAvailableAttributes() {
 		String sentence = "";
 		for(String attribute : availableAttributes) {
@@ -95,19 +106,15 @@ public class Hero extends Character {
 		}
 		return sentence;	
 	}
-	
 	public int getLevel() {
 		return this.level;	
-	}
-	
+	}	
 	public int getToughness() {
 		return toughness + armor.getStats();
-	}
-	
+	}	
 	public String getTitle() {
 		return title;
 	}
-	
 	public void addAbility(int abilityID, String name, int multiplier, int manaUsage) {
 		abilities.add(new Ability(abilityID,name,multiplier,manaUsage));
 		this.abilityID++;
@@ -127,7 +134,6 @@ public class Hero extends Character {
 	public void giveExp(int value) {
 		currentExp += value;
 	}
-	
 	public void heroMenu(Hero hero) {
 		//[CHOICE]//
 			boolean closed = false;

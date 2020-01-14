@@ -30,15 +30,15 @@ public static void setGenerator(int Rat,int Skeleton,int Ghul) {
         Random rand = new Random();
 
         for (int i = 0; i < Rat_COUNT; i++) {
-            queue.add(new Rat("Rat",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(3) ) ) );
+            queue.add(new Rat("Rat",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(2) ) ) );
         }
 
         for (int i = 0; i < Skeleton_COUNT; i++) {
-            queue.add(new Skeleton("Skeleton",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(3) ) ) );
+            queue.add(new Skeleton("Skeleton",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(2) ) ) );
         }
         
         for (int i = 0; i < Ghul_COUNT; i++) {
-            queue.add(new Ghul("Ghul",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(3) ) ) );
+            queue.add(new Ghul("Ghul",20,10,4,4,4,4,4,( hero.getLevel() + rand.nextInt(2) ) ) );
         }
 
 

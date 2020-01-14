@@ -18,8 +18,8 @@ public class LootManager {
 	private static int armorChance = 10;
 	private static int consumableChance = 30;
 	
-	private static Consumable lifePotion = new Consumable("Life potion", 10, 5);
-	private static Consumable manaPotion = new Consumable("Mana potion", 10, 5);
+	private static Consumable lifePotion = new Consumable("Life potion", 10, 25);
+	private static Consumable manaPotion = new Consumable("Mana potion", 10, 25);
 	
 	private static int roll(int maxValue) {
 		Random generator = new Random();

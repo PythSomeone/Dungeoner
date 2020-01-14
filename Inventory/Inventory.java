@@ -180,7 +180,7 @@ public class Inventory {
 		Log.info("SHOW inventory");
 		Log.info("BACK");
 		
-		while(closed) {
+		while(!closed) {
 			action = Log.scanString();
 			//[REMOVE ITEM]//
 			if(action.equalsIgnoreCase("Remove")) {

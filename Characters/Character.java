@@ -47,8 +47,8 @@ public abstract class Character {
 	public void printCharacter() {
 		Log.info("Name : " + name);
 		Log.info("Level : " + level);
-		Log.info("Health : " + maxHealth + "/" + currentHealth);
-		if(!isMonster()) Log.info("Mana : " + maxMana + "/" + currentMana);
+		Log.info("Health : " + currentHealth + "/" + maxHealth);
+		if(!isMonster()) Log.info("Mana : " + currentMana + "/" + maxMana);
 		Log.info("Strenght : " + strenght);
 		Log.info("Agility : " + strenght);
 		Log.info("Inteligence : " + strenght);

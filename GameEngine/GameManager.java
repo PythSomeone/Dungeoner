@@ -9,8 +9,6 @@ import Inventory.Items.Weapon;
 
 public class GameManager {
 	
-	private static int dungeonsDoneAmount = 0;
-	
 	private static Weapon beginnerWeapon = new Weapon("Wooden stick", 1, 1);
 	private static Armor beginnerArmor = new Armor("Tattered cloth", 1, 1);
 	private static Hero heroCreated;
@@ -96,9 +94,6 @@ public class GameManager {
 		
 	}
 	
-	public static void incrementDungeonsDoneAmount() {
-		dungeonsDoneAmount++;
-	}
 		
 }
 

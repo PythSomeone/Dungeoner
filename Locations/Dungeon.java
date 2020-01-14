@@ -13,15 +13,13 @@ import GameEngine.MonsterGenerator;
 
 public class Dungeon {
 
-	private int dungeonLevel;
-	private int roomCount;
+
 	private ArrayList<Monster> monsters = new ArrayList<>();
 	
 	private Random rand = new Random();
 	
 	public Dungeon(Hero hero) {
 		
-		this.dungeonLevel=hero.getLevel();
 		
 		
 		for(int i=0;i<rand.nextInt(8)+3;i++) {
