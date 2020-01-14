@@ -1,14 +1,15 @@
-package Characters.Inventory;
+package Inventory;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import Characters.Hero;
+import GameEngine.GameManager;
 import GameEngine.Log;
-import Interfaces.ItemsInterface;
-import Items.Weapon;
-import Items.Armor;
-import Items.Consumable;
+import Interfaces.ItemInterface;
+import Inventory.Items.Armor;
+import Inventory.Items.Consumable;
+import Inventory.Items.Weapon;
 
 public class Inventory {
 	
@@ -16,7 +17,7 @@ public class Inventory {
 	
 	private int gold = 0;
 	
-	private ArrayList<ItemsInterface> inventory = new ArrayList<>();
+	private ArrayList<ItemInterface> inventory = new ArrayList<>();
 	
 	private void deleteItem(int ID) {
 		
@@ -24,7 +25,7 @@ public class Inventory {
 		String name = null;
 		boolean allowMultiple = false;
 		
-		for(ItemsInterface item : inventory) { // LOOK FOR ID
+		for(ItemInterface item : inventory) { // LOOK FOR ID
 			if(item.getID() == ID) {
 				name = item.getName();
 				if(!item.allowMultiple()) index = inventory.indexOf(item);	
@@ -63,7 +64,7 @@ public class Inventory {
 	}
 	private Consumable getConsumable(int ID) {
 		Consumable pushItem = null;
-		for(ItemsInterface item : inventory) { // LOOK FOR ID
+		for(ItemInterface item : inventory) { // LOOK FOR ID
 			if(item.getID() == ID) {
 				if(item.isConsumable()) pushItem = (Consumable) item;
 			}
@@ -73,7 +74,7 @@ public class Inventory {
 	}
 	private Weapon getWeapon(int ID) {
 		Weapon pushItem = null;
-		for(ItemsInterface item : inventory) { // LOOK FOR ID
+		for(ItemInterface item : inventory) { // LOOK FOR ID
 			if(item.getID() == ID) {
 				if(item.isWeapon()) pushItem = (Weapon) item;
 			}
@@ -83,7 +84,7 @@ public class Inventory {
 	}
 	private Armor getArmor(int ID) {
 		Armor pushItem = null;
-		for(ItemsInterface item : inventory) { // LOOK FOR ID
+		for(ItemInterface item : inventory) { // LOOK FOR ID
 			if(item.getID() == ID) {
 				if(item.isArmor()) pushItem = (Armor) item;
 			}
@@ -112,7 +113,7 @@ public class Inventory {
 		if(inventory.isEmpty())	Log.info("Your inventory is empty!");
 		else {
 			Log.info("[INVENTORY]   " + inventory.size() + "/" + inventorySize);
-			for(ItemsInterface item : inventory) {
+			for(ItemInterface item : inventory) {
 				Log.info("ID : " + item.getID());
 				Log.info("Name : " + item.getName());
 				Log.info("Type : " + item.getType());
@@ -124,7 +125,7 @@ public class Inventory {
 		}	
 	}
 	private boolean isDuplicate(int ID) {
-		for(ItemsInterface item : inventory) {
+		for(ItemInterface item : inventory) {
 			if(item.getID() == ID) return true;
 		}
 		return false;
@@ -134,7 +135,7 @@ public class Inventory {
 		else return false;
 	}
 	private boolean isInInventory(int ID) {
-		for(ItemsInterface item : inventory) {
+		for(ItemInterface item : inventory) {
 			if(item.getID() == ID) return true;
 		} return false;
 	}
@@ -147,7 +148,7 @@ public class Inventory {
 	public int getGold() {
 		return gold;
 	}
-	public void addItem(ItemsInterface item) {		
+	public void addItem(ItemInterface item) {		
 		if(isDuplicate(item.getID())) {
 			if(!item.allowMultiple()) Log.info("You allready have this item in your inventory");
 			else {
@@ -166,7 +167,6 @@ public class Inventory {
 		}
 	}
 	public void openMenu(Hero hero) {
-		boolean closed = false;
 		String action = null;
 		
 		hero.getInventory().inventoryInfo();
@@ -175,9 +175,9 @@ public class Inventory {
 		Log.info("EQUIP item");
 		Log.info("USE item");
 		Log.info("SHOW inventory");
-		Log.info("CLOSE inventory");
+		Log.info("BACK");
 		
-		while(closed == false) {
+		for(;;) {
 			action = Log.scanString();
 			//REMOVE ITEM
 			if(action.equalsIgnoreCase("Remove")) {
@@ -186,7 +186,7 @@ public class Inventory {
 					hero.getInventory().deleteItem(Log.scanInt());
 				}
 				catch(InputMismatchException e) {
-					Log.info("NIEPOPRAWNY FORMAT!");
+					Log.info("INVALID FORMAT");
 				}	
 			}
 			//EQUIP ITEM
@@ -196,7 +196,7 @@ public class Inventory {
 					hero.getInventory().equip(hero, Log.scanInt());
 				}
 				catch(InputMismatchException e) {
-					Log.info("NIEPOPRAWNY FORMAT!");
+					Log.info("INVALID FORMAT");
 				}	
 			}
 			//USE ITEM
@@ -207,14 +207,28 @@ public class Inventory {
 						hero.getInventory().useItem(hero, Log.scanInt());
 					}
 					catch(InputMismatchException e) {
-						Log.info("NIEPOPRAWNY FORMAT!");
+						Log.info("INVALID FORMAT");
 					}	
 				}else Log.info("You dont need a potion");	
 			}
 			//SHOW INVENTORY
-			else if(action.equalsIgnoreCase("Show"))	hero.getInventory().inventoryInfo();
-			//CLOSE INVENTORY
-			else if(action.equalsIgnoreCase("Close")) closed = true;
+			else if(action.equalsIgnoreCase("Show")) {
+				try {
+					hero.getInventory().inventoryInfo();
+				}
+				catch(InputMismatchException e){
+					Log.info("INVALID FORMAT");
+				}
+			}
+			//BACK
+			else if(action.equalsIgnoreCase("Back")) {
+				try {
+					GameManager.restMenu(hero);
+				}
+				catch(InputMismatchException e){
+					Log.info("INVALID FORMAT");
+				}
+			}
 			
 			else Log.info("Wrong input");
 		}

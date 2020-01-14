@@ -6,6 +6,7 @@ import java.util.Random;
 import Characters.Hero;
 import Characters.Monster;
 import CombatSystem.Combat;
+import GameEngine.GameManager;
 import GameEngine.Log;
 import GameEngine.LootManager;
 import GameEngine.MonsterGenerator;
@@ -52,6 +53,7 @@ public class Dungeon {
 				Log.info("Following items have dropped : ");
 				if(prize) LootManager.monsterDrop(hero, monsters.size());
 			}
+			GameManager.restMenu(hero);
 		}
 
 		

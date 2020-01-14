@@ -23,7 +23,6 @@ public class Combat {
 		
 		Log.info("Your current oponnent : ");
 		enemy.printCharacter();
-		Log.pressAnyKeyToContinue();
 		
 		for(;;) {
 			
@@ -57,6 +56,10 @@ public class Combat {
 		int opt = 0;
 
 		while (!success || !actionDone) {
+			Log.info(player.getName() + " status:");
+			player.printStatus();
+			Log.info(enemy.getName() + " status:");
+			enemy.printStatus();
 			Log.info("Choose ability id to attack an enemy ");
 			player.printAbilityList();
 			option = Log.scanString();

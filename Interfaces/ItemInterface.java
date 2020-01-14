@@ -1,6 +1,6 @@
 package Interfaces;
 
-public interface ItemsInterface 
+public interface ItemInterface 
 {
 	String getName();
 	String getType();

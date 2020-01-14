@@ -1,4 +1,4 @@
-package Items;
+package Inventory.Items;
 
 public class Consumable extends _Item {
 

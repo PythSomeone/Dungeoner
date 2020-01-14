@@ -3,9 +3,9 @@ package GameEngine;
 import java.util.Random;
 
 import Characters.Hero;
-import Items.Armor;
-import Items.Consumable;
-import Items.Weapon;
+import Inventory.Items.Armor;
+import Inventory.Items.Consumable;
+import Inventory.Items.Weapon;
 import Items.Generators.ArmorGenerator;
 import Items.Generators.WeaponGenerator;
 

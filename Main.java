@@ -9,13 +9,13 @@ public class Main
 	{
 		// INIT //
 		
-		Hero hero;
+		Hero hero; //initialize hero
 		
 		// GAME //
 		
-		GameManager.greetingMessage();
-		hero = GameManager.getHero();
-		 Dungeon dungeon = new Dungeon(hero);
+		GameManager.greetingMessage(); //introduction and hero creation
+		hero = GameManager.getHero(); //send created hero into proper slot
+		Dungeon dungeon = new Dungeon(hero); //starts adventure in dungeon
 		
 }
 }

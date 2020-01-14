@@ -44,6 +44,21 @@ public abstract class Character {
 			Log.info("["+ability.getID()+"]"+"["+ability.getName()+"]["+ability.getManaUsage()+"]["+ability.getMultiplier()+"]");
 		}
 	}
+	public void printCharacter() {
+		Log.info("Name : " + name);
+		Log.info("Level : " + level);
+		Log.info("Health : " + maxHealth + "/" + currentHealth);
+		if(!isMonster()) Log.info("Mana : " + maxMana + "/" + currentMana);
+		Log.info("Strenght : " + strenght);
+		Log.info("Agility : " + strenght);
+		Log.info("Inteligence : " + strenght);
+		if(!isMonster()) Log.info("Luck : " + luck);
+		if(!isMonster()) Log.info("Toughness : " + toughness);
+	}
+	public void printStatus() {
+		Log.info("Health : " + maxHealth + "/" + currentHealth);
+		if(!isMonster()) Log.info("Mana : " + maxMana + "/" + currentMana);
+	}
 	
 	public boolean isAlive()
 	{
@@ -111,18 +126,6 @@ public abstract class Character {
 	
 	public boolean isMonster() {
 		return false;
-	}
-	
-	public void printCharacter() {
-		Log.info("Name : " + name);
-		Log.info("Level : " + level);
-		Log.info("Health : " + maxHealth + "/" + currentHealth);
-		if(!isMonster()) Log.info("Mana : " + maxMana + "/" + currentMana);
-		Log.info("Strenght : " + strenght);
-		Log.info("Agility : " + strenght);
-		Log.info("Inteligence : " + strenght);
-		if(!isMonster()) Log.info("Luck : " + luck);
-		if(!isMonster()) Log.info("Toughness : " + toughness);
 	}
 	
 	public boolean hasEnoughMana(Ability ability) {

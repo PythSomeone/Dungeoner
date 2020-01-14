@@ -1,4 +1,4 @@
-package Items;
+package Inventory.Items;
 
 import GameEngine.Log;
 

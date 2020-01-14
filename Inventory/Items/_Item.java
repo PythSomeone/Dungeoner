@@ -1,8 +1,8 @@
-package Items;
+package Inventory.Items;
 
-import Interfaces.ItemsInterface;
+import Interfaces.ItemInterface;
 
-public abstract class _Item implements ItemsInterface {
+public abstract class _Item implements ItemInterface {
 	
 	private static int SET_ID = 0;
 	
